@@ -5,8 +5,8 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 750px;
-  height: 530px;
+  width: calc(100vw - 630px);
+  height: calc(100vh - 100px);
   transform: translate(-50%, -50%);
   box-shadow: 1px 2px 20px #f3f3f3;
   border-radius: 10px;
@@ -15,10 +15,11 @@
 
   &__sidebar {
     background-color: $grayColor;
-    width: 200px;
+    width: 300px;
     height: calc(100%-120px);
     border-right: 1px solid $grayColor;
-    padding: 60px 20px;
+    padding: 50px 20px;
+    overflow-y: auto;
   }
 
   &__tasks {

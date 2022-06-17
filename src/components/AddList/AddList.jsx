@@ -1,18 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import axios from "axios";
-import { useSelector, useDispatch } from "react-redux";
 import Button from "../Button";
 import closeSvg from "@assets/img/remove.svg";
 import styles from "./AddList.module.scss";
-import { fetchLists, addList, deleteList } from "@store/Sidebar/actions";
+
 const AddList = ({ onAdd }) => {
   const [visiblePopup, setVisiblePopup] = useState(false);
   const [name, setName] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   
-
-  const dispatch = useDispatch();
-
   const addList = () => {
     if (!name) {
       alert("Введите название списка");
@@ -22,28 +18,22 @@ const AddList = ({ onAdd }) => {
     // dispatch(fetchLists(name));
     // dispatch(addList(`chat-${name}`, name))
     onClose();
-
     axios
       .post("http://localhost:3002/lists", {
         name,
       })
-
-
       .then(({ data }) => {
         const listObj = { ...data};
         // dispatch(fetchLists(listObj));
         onAdd(listObj);
-        
         onClose();
       })
-     
       .catch(() => {
         alert("Ошибка при добавлении списка!");
       })
       .finally(() => {
         setIsLoading(false);
       });
-    //   dispatch(fetchLists());
   };
 
   const onClose = () => {

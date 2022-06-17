@@ -2,7 +2,6 @@ import axios from "axios";
 
 export const ADD_LIST = 'LISTS::ADD_LIST'
 export const DELETE_LIST = 'LISTS::DELETE_CHAT'
-
 export const SET_LISTS = "LISTS::SET_CARDS";
 export const SET_LOADED = "LOADED::SET_LOADED";
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-
+import axios from "axios";
 import AddList from "../AddList";
 import { fetchLists, addList, deleteList } from "@store/Sidebar/actions";
 
@@ -19,11 +19,15 @@ const Sidebar = ({ onClickItem, isRemovable, onRemove }) => {
     dispatch(addList(obj));
   };
 
-  const removeList = (item) => {
-    if (window.confirm("Вы действительно хотите удалить список?")) {
-      //   axios.delete("http://localhost:3001/lists/" + item.id).then(() => {
-      //     onRemove(item.id);
-      //   });
+  const removeList = async (id) => {
+    try {
+      if (window.confirm("Вы действительно хотите удалить список?")) {
+        dispatch(deleteList(id));
+        await axios.delete(`http://localhost:3002/lists/${id}`);
+      }
+    } catch (error) {
+      alert("Ошибка при удалении");
+      console.error(error);
     }
   };
 
@@ -49,7 +53,7 @@ const Sidebar = ({ onClickItem, isRemovable, onRemove }) => {
                   className="list__remove-icon"
                   src={removeSvg}
                   alt="Remove icon"
-                  onClick={() => removeList(obj)}
+                  onClick={() => removeList(obj.id)}
                 />
               )}
             </li>

@@ -1,0 +1,41 @@
+.grid * {
+	padding: 10px 15px;
+	// background-color: rgb(96, 143, 204);
+	border: 1px solid rgb(24, 84, 133);
+	text-align: center;
+	font-size: 14px;
+	font-family: sans-serif;
+	// color: #fff;
+}
+
+/* Сетка */
+
+.grid {
+	display: grid;
+	grid-template-columns: minmax(200px, 600px) 150px 150px;
+	// grid-gap: 5px;
+
+
+
+}
+
+
+
+
+
+// @media only screen and (min-width: 768px) {
+// 	.grid__container {
+// 		grid-template-columns: repeat(2, 1fr);
+// 		grid-template-rows: repeat(4, 1fr);
+// 		max-width: 583px;
+// 	}
+// }
+
+// @media only screen and (min-width: 1024px) {
+	
+// 	.grid__container {
+// 		grid-template-columns: repeat(4, 1fr);
+// 		grid-template-rows: repeat(2, 1fr);
+// 		max-width: 1165px;
+// 	}
+// }

@@ -50,7 +50,7 @@ const Sidebar = ({ onClickItem, isRemovable, onRemove }) => {
               <span>{obj.name}</span>
               {isRemovable && (
                 <img
-                  className="list__remove-icon"
+                  className={styles.shopping__list__remove}
                   src={removeSvg}
                   alt="Remove icon"
                   onClick={() => removeList(obj.id)}

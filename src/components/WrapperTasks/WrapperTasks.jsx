@@ -3,6 +3,7 @@ import React, { useCallback, useEffect } from "react";
 import Input from "../Input/Input";
 import Button from "../Button";
 import Table from "../Table";
+import AddTask from "../AddTask/AddTask";
 
 import { debounce } from "lodash";
 
@@ -33,9 +34,9 @@ const WrapperTasks = () => {
         <Button text={"По имени"} />
       </div>
       <div className={styles.tasks__cotent}>
-      <Table />
+        <Table />
+        <AddTask />
       </div>
-    
     </div>
   );
 };

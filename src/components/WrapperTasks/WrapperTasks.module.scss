@@ -1,0 +1,12 @@
+.tasks {
+    padding: 60px 20px;
+
+    &__top {
+        display: flex;
+        justify-content: space-between;
+    }
+ 
+    &__cotent {
+      margin-top: 40px;  
+    }
+}

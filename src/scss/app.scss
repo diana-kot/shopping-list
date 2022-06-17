@@ -1,0 +1,48 @@
+@import "variables";
+@import "normalize";
+// @import "~antd/dist/antd.css";
+// @import "~bootstrap/scss/bootstrap";
+
+body {
+  font-family: 'Roboto';
+  height: 100%;
+  line-height: 1;
+  font-size: 14px;
+  font-weight: 400;
+  color: $colorDark;
+}
+
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper__container {
+  flex: 1 1 auto;
+}
+
+.main {
+  flex: 1 1 auto;
+}
+
+.container {
+  padding-left: calc(50% - #{$maxWidth / 2});
+  padding-right: calc(50% - #{$maxWidth / 2});
+}
+
+@media (max-width: 1023px) {
+  .container {
+    padding-left: calc(40% - #{$widthSiteSml / 2});
+    padding-right: calc(40% - #{$widthSiteSml / 2});
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+

@@ -1,0 +1,42 @@
+@import "@scss/variables";
+
+.wrapper__input {
+  border-radius: 1px;
+  border: 1px;
+  width: 35px;
+}
+
+.wrapper__input {
+  position: relative;
+  display: inline-flex;
+}
+.input {
+//   min-width: 300px;
+  padding: 6px 10px;
+  padding-right: calc(35px + 15px);
+  border-color: $colorDark;
+  border-radius: 3px;
+  // font-size: var(--font-size-medium);
+  outline: none;
+}
+.input:focus {
+  border-color: var(--color-blue);
+}
+.clear {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 35px;
+  height: calc(100% - 3px * 2);
+  padding: 10px;
+  border: none;
+  outline: none;
+  object-fit: contain;
+  object-position: center center;
+  transition: 0.5s;
+  opacity: 0.4;
+  cursor: pointer;
+}
+.clear__disabled {
+  opacity: 0.2;
+}

@@ -26,7 +26,7 @@ const AddTask = () => {
           required
         />
         <select name="age" className={styles.field}>
-          <option selected>шт</option>
+          <option value={'шт'}>шт</option>
           <option>кг</option>
           <option>бан</option>
         </select>

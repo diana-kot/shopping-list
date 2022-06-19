@@ -1,30 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
 
-import { Route, useNavigate } from "react-router-dom";
-
-import Sidebar from "@components/Sidebar";
+import List from "@components/List";
 import WrapperTasks from "@components/WrapperTasks";
 
 import styles from "./ShoppingList.module.scss";
 
 const ShoppingList = () => {
   // let history = useNavigate();
+  const [activeItem, setActiveItem] = useState(null);
+  const lists = useSelector(({ lists }) => lists.lists);
 
   return (
-    <div className={styles.shopping}>
-      <div className={styles.shopping__sidebar}>
-        <Sidebar
-          onClickItem={(list) => {
-            // history.push(`/lists/${list.id}`);
-            console.log(1);
-          }}
-          isRemovable
-        />
+    <>
+      <div className={styles.shopping}>
+        <div className={styles.shopping__sidebar}>
+          <List
+            onClickItem={(item) => {
+              setActiveItem(item);
+              // history.push(`/lists/${list.id}`);
+  
+            }}
+            activeItem={activeItem}
+            isRemovable
+          />
+        </div>
+        <div className={styles.shopping__tasks}>
+          <WrapperTasks list={activeItem} />
+        </div>
       </div>
-      <div className={styles.shopping__tasks}>
-        <WrapperTasks />
-      </div>
-    </div>
+    </>
   );
 };
 

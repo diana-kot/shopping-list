@@ -1,56 +1,28 @@
 {
   "lists": [
     {
-      "id": 3,
-      "name": "Спорт"
+      "id": "1",
+      "name": "Продукты"
     },
     {
-      "id": 4,
-      "name": "Книги"
+      "name": "Книги",
+      "id": "2"
     }
   ],
   "tasks": [
     {
-      "listId": 4,
-      "text": "варвпавоавава варвпавоавава",
-      "completed": true,
-      "id": 10
+      "text": "помидор",
+      "count": "2",
+      "izm": "шт.",
+      "id": "1",
+      "listId": "1"
     },
     {
-      "listId": 3,
-      "text": "",
-      "completed": false,
-      "id": 15
-    },
-    {
-      "listId": 3,
-      "text": "bgbg",
-      "completed": false,
-      "id": 16
-    },
-    {
-      "listId": 3,
-      "text": "варвпавоавава",
-      "completed": true,
-      "id": 17
-    },
-    {
-      "listId": 3,
-      "text": "варвпавоавава",
-      "completed": false,
-      "id": 18
-    },
-    {
-      "listId": 3,
-      "text": "варвпавоавава",
-      "completed": false,
-      "id": 19
-    },
-    {
-      "listId": 3,
-      "text": "варвпавоавава",
-      "completed": false,
-      "id": 20
+      "text": "ремарк",
+      "count": "1",
+      "izm": "шт.",
+      "id": "2",
+      "listId": "2"
     }
   ]
 }

@@ -1,80 +1,98 @@
-import React, { useState, useEffect } from "react";
-
-import { Link, Outlet } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-
+import React, { useState, useEffect, useCallback } from "react";
+import { debounce } from "lodash";
 import axios from "axios";
-import AddList from "../AddList";
-import AddTask from "../AddTask";
-import TableTask from "../TableTask";
-import { useNavigate, useParams } from "react-router-dom";
-import { fetchLists, addList, deleteList } from "@store/List/actions";
-
 import cn from "classnames";
 
-import removeSvg from "@assets/img/remove.svg";
+import { useParams, Navigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
+import { fetchTasks } from "@store/Tasks/actions";
+import AddTask from "../AddTask";
+import Tasks from "../Tasks";
+import Input from "../Input/Input";
+import Button from "../Button";
+
+// import { addMessageWithThunk } from "../../store/Tasks/actions";
+
 import styles from "./List.module.scss";
 
-const List = ({ onClickItem, isRemovable, onRemove, activeItem }) => {
+const List = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const { chatId } = useParams();
+  const [inputSearchValue, setInputSearchValue] = React.useState("");
 
-  // navigate("/chats", { replace: true });
-
-  // const [activeItem, setActiveItem] = useState(null);
-  const lists = useSelector(({ lists }) => lists.lists);
-  // const { listId } = useParams();
-
-  // const tasksList = useSelector(({ tasks }) => tasks.tasks);
-  // console.log(tasksList[2]);
-
-  const onAddList = (obj) => {
-    dispatch(addList(obj));
-  };
-
-  const removeList = async (id) => {
-    try {
-      if (window.confirm("Вы действительно хотите удалить список?")) {
-        dispatch(deleteList(id));
-        await axios.delete(`http://localhost:3002/lists/${id}`);
-      }
-    } catch (error) {
-      alert("Ошибка при удалении");
-      console.error(error);
-    }
-  };
+  const tasks = useSelector(({ tasks }) => tasks.tasks);
 
   React.useEffect(() => {
-    dispatch(fetchLists());
+    dispatch(fetchTasks());
   }, []);
+
+
+  const handleSubmit = (messageText) => {
+    dispatch();
+    // addMessageWithThunk(chatId, {
+    //   text: messageText,
+    //   author: "me",
+    //   id: `msg-${Date.now()}`,
+    // })
+  };
+
+  const debouncedGetResponse = useCallback(
+    // debounce(value => getResponse(value), 300),
+    // []
+    console.log("поиск")
+  );
+
+  const handleInputChange = (value) => {
+    setInputSearchValue(value);
+    debouncedGetResponse(value);
+  };
+
+  if (!tasks[chatId]) {
+    return <Navigate to="/" replace />;
+  }
 
   return (
     <>
-      <AddList onAdd={onAddList} />
-      <ul className={styles.shopping__list}>
-        {lists &&
-          lists.map((obj) => (
-            <Link key={obj.id} to={`/lists/${obj.id}`}>
-              <li
-                key={obj.id}
-                className={cn(activeItem && activeItem.id === obj.id ? styles.active : "")}
-                // className={cn(obj.className, {active: activeItem === obj.id})}
-                // onClick={() => setActiveItem(obj.id)}
-                 onClick={onClickItem ? () => onClickItem(obj) : null}
-              >
-                <span>{obj.name}</span>
-                {isRemovable && (
-                  <img
-                    className={styles.shopping__list__remove}
-                    src={removeSvg}
-                    alt="Remove icon"
-                    onClick={() => removeList(obj.id)}
-                  />
-                )}
-              </li>
-            </Link>
-          ))}
-      </ul>
+      {tasks[chatId] ? (
+        <>
+          <div className={styles.tasks}>
+            <div className={styles.tasks__top}>
+              <Input
+                value={inputSearchValue}
+                handleInputChange={handleInputChange}
+                placeholder="Поиск..."
+                classes={styles.input__search}
+              />
+              <Button text={"По имени"} />
+            </div>
+            <div className="app-content">
+              <Tasks tasks={tasks[chatId]} />
+            </div>
+            <AddTask />
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="no-chat-message">Ничего нет</div>
+
+          <div className={styles.tasks}>
+            <div className={styles.tasks__top}>
+              <Input
+                value={inputSearchValue}
+                handleInputChange={handleInputChange}
+                placeholder="Поиск..."
+                classes={styles.input__search}
+              />
+              <Button text={"По имени"} />
+            </div>
+            <div className="app-content">
+              <Tasks tasks={tasks[chatId]} />
+            </div>
+            <AddTask />
+          </div>
+        </>
+      )}
     </>
   );
 };

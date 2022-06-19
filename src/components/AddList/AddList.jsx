@@ -1,38 +1,42 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import Button from "../Button";
 import closeSvg from "@assets/img/remove.svg";
 import styles from "./AddList.module.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchLists, addList, deleteList } from "@store/List/actions";
+import { deleteTask, addListTasks } from "@store/Tasks/actions";
 
 const AddList = ({ onAdd }) => {
+  const dispatch = useDispatch();
   const [visiblePopup, setVisiblePopup] = useState(false);
   const [name, setName] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  
-  const addList = () => {
+
+  const submitList = () => {
     if (!name) {
       alert("Введите название списка");
       return;
     }
     setIsLoading(true);
-    // dispatch(fetchLists(name));
-    // dispatch(addList(`chat-${name}`, name))
-    onClose();
+
     axios
       .post("http://localhost:3002/lists", {
-        name,
+        name: name,
       })
       .then(({ data }) => {
-        const listObj = { ...data};
-        // dispatch(fetchLists(listObj));
+        const listObj = { ...data, tasks: [] };
         onAdd(listObj);
         onClose();
       })
+
       .catch(() => {
         alert("Ошибка при добавлении списка!");
       })
       .finally(() => {
         setIsLoading(false);
+        dispatch(addList(`list-${name}`, name));
+        dispatch(addListTasks(`list-${name}`));
       });
   };
 
@@ -63,7 +67,7 @@ const AddList = ({ onAdd }) => {
             type="text"
             placeholder="Название списка"
           />
-          <button onClick={addList} className={styles.button}>
+          <button onClick={submitList} className={styles.button}>
             {isLoading ? "Добавление..." : "Добавить"}
           </button>
         </div>

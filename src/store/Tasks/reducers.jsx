@@ -9,21 +9,7 @@ import {
 } from "./actions";
 
 export const tasksState = {
-  // tasks: {
-  //   1: [
-  //     { text: "помидоры", 
-  //       count: "1",
-  //        izm: "шт.", 
-  //        id: "1" }
-  //       ],
-  //   2: [
-  //     { text: "квартира", 
-  //       count: "1",
-  //        izm: "шт.",
-  //         id: "2" }]
-
-  // },
-  tasks: [],
+  tasks: {},
   isLoaded: false,
   isLoadingFailed: false,
 };
@@ -70,6 +56,13 @@ export const tasksReducer = (state = tasksState, action) => {
         tasks: state.tasks.filter((list) => list.id !== action.id),
       };
     }
+
+    // case DELETE_MESSAGE: {
+    //   return {
+    //     ...state,
+    //     [action.idchat]: state.messages[action.idchat].filter(message => message.id !== action.delete),
+    //     };
+    // }
     default:
       return state;
   }

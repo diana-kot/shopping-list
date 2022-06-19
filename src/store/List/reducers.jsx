@@ -1,12 +1,12 @@
 import { SET_LISTS, SET_LOADED, ADD_LIST, DELETE_LIST } from "./actions";
 
-export const sideBarState = {
-  lists: [],
+export const initialState = {
+  lists: [ ],
   isLoaded: false,
   isLoadingFailed: false,
 };
 
-export const sideBarReducer = (state = sideBarState, action) => {
+export const listReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_LISTS: {
       return {

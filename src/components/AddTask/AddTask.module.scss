@@ -1,18 +1,18 @@
 .tasks {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  gap: 30px;
 }
 
 .field {
-    background: #ffffff;
-    border: 1px solid #efefef;
-    box-sizing: border-box;
-    border-radius: 4px;
-    padding: 8px 13px;
-    font-size: 14px;
-    margin-top: 20px;
+  background: #ffffff;
+  border: 1px solid #efefef;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 8px 13px;
+  font-size: 14px;
+  margin-top: 20px;
 
-    &:focus {
-      border-color: #dbdbdb;
-    }
+  &:focus {
+    border-color: #dbdbdb;
   }
+}

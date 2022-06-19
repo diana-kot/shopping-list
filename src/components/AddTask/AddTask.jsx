@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./AddTask.module.scss";
+
 import Button from "../Button";
 
 const AddTask = () => {
@@ -33,7 +34,7 @@ const AddTask = () => {
         <Button
           text={"добавить"}
           disabled={isLoading}
-          //   onClick={addTask}
+          //onClick={addTask}
           className={styles.field}
         >
           {isLoading ? "Добавление..." : "Добавить задачу"}

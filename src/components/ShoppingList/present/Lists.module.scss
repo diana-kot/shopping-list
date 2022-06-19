@@ -1,0 +1,54 @@
+@import "@scss/variables";
+
+.shopping__container {
+  box-shadow: 1px 2px 20px #f3f3f3;
+  border-radius: 10px;
+  border: 1px solid #f1f1f1;
+  font-size: 14px;
+}
+
+.shopping {
+  display: flex;
+  justify-content: space-between;
+  background-color: $grayColor;
+  padding: 50px 20px;
+
+  &__list {
+    $self: &;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+    margin-top: 10px;
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      gap: 100%;
+      padding: 10px 44px;
+      width: 90%;
+      transition: background-color 0.15s ease-in-out;
+
+      &:hover #{$self}__remove {
+        opacity: 0.2;
+      }
+
+      #{$self}__remove {
+        opacity: 0;
+
+        &:hover {
+          opacity: 0.9;
+        }
+      }
+
+      &.active {
+        background: #ffffff;
+        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.04);
+        border-radius: 4px;
+      }
+    }
+  }
+}

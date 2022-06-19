@@ -22,7 +22,6 @@ const List = () => {
   const [inputSearchValue, setInputSearchValue] = React.useState("");
 
   const tasks = useSelector(({ tasks }) => tasks.tasks);
-  console.log(tasks)
 
   // React.useEffect(() => {
   //   dispatch(fetchTasks());
@@ -33,7 +32,6 @@ const List = () => {
     //   addTask(listId, newTask)
      
     // );
-    console.log('зашел сюда')
   // console.log(newTask)
   // console.log(tasks)
   };

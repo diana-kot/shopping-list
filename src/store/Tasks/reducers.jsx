@@ -9,22 +9,22 @@ import {
 } from "./actions";
 
 export const tasksState = {
-  tasks: { 
+  tasks: {
     1: [
-    {
-      text: "квартира",
-      count: "1",
-      izm: "шт.",
-      id: "1"
-    },
-    {
-      text: "квар",
-      count: "16",
-      izm: "шт.",
-      id: "2"
-    }
-  ]
-},
+      {
+        text: "квартира",
+        count: "1",
+        izm: "шт.",
+        id: "1",
+      },
+      {
+        text: "квар",
+        count: "16",
+        izm: "шт.",
+        id: "2",
+      },
+    ],
+  },
   isLoaded: false,
   isLoadingFailed: false,
 };
@@ -68,16 +68,17 @@ export const tasksReducer = (state = tasksState, action) => {
     case DELETE_TASK: {
       return {
         ...state,
-        [action.payload.listId]: state[action.payload.listId].filter(
-          (task) => task.id !== action.payload.idToDelete
-        ),
+        tasks: {
+          ...state.tasks,
+          [action.payload.listId]: state.tasks[action.payload.listId].filter(
+            (task) => task.id !== action.payload.idToDelete
+          ),
+        },
       };
     }
     case EDIT_TASK: {
       const { listId, idToEdit, newText, newCount, newEzn } = action.payload;
-      const editIndex = state[listId].findIndex(
-        (task) => task.id === idToEdit
-      );
+      const editIndex = state[listId].findIndex((task) => task.id === idToEdit);
 
       const newState = { ...state };
       newState[listId][editIndex] = {

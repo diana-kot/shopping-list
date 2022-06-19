@@ -12,19 +12,21 @@ const Tasks = ({ tasks }) => {
 
   const handleDelete = (id) => {
     dispatch(deleteTask(listId, id));
+    console.log(1)
   };
 
   const handleEdit = (id, newText, newCount, newEzn) => {
-   dispatch(editTask(listId, id, newText, newCount, newEzn));
+    dispatch(editTask(listId, id, newText, newCount, newEzn));
+    console.log(2)
   };
 
   return (
     <>
       {tasks.map((task) => (
-        <div className="message-list" key={task.id}>
+        <div className={styles.message__list} key={task.id}>
           <Task text={task.text} count={task.count} izm={task.izm} />
-          <Button text={"Удалить"}  />
-        <Button  text={"Редактировать"} />
+          <Button text={"Удалить"} onClick={() => handleDelete(task.id)} />
+          <Button onClick={() => handleEdit(task.id)} text={"Редактировать"} />
         </div>
       ))}
     </>

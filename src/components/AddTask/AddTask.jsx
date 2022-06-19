@@ -14,13 +14,14 @@ const AddTask = ({ lists, onAddTask }) => {
   const [isLoading, setIsLoading] = useState("");
   const { listId } = useParams();
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const addTasks = (e) => {
     e.preventDefault();
     if (!inputText && !inputCount && !inputOption) {
       alert("Заполните данные");
       return;
+     
     }
     const obj = {
       text: inputText,
@@ -28,8 +29,16 @@ const AddTask = ({ lists, onAddTask }) => {
       izm: inputOption,
       id: `tsk-${Date.now()}`,
     };
+
     setIsLoading(true);
     onAddTask(obj);
+    dispatch(
+      addTask(listId, 
+        obj
+      )
+    );
+    
+    setIsLoading(false);
     onClose();
 
     // onAddTask(listId, obj)
@@ -58,6 +67,7 @@ const AddTask = ({ lists, onAddTask }) => {
   const onClose = () => {
     setInputText("");
     setInputCount("");
+
   };
 
   return (

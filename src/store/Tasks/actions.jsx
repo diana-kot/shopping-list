@@ -51,14 +51,25 @@ export const addTask = (listId, newTask) => ({
 
 export const deleteTask = (listId, taskId) => ({
   type: DELETE_TASK,
-  listId: listId,
-  delete: taskId,
+  payload: {
+    listId,
+    taskId,
+  },
+});
+
+export const editTask = (listId, idToEdit, newText, newCount, newEzn) => ({
+  type: EDIT_TASK,
+  payload: {
+    listId,
+    idToEdit,
+    newText,
+    newCount,
+    newEzn
+  },
 });
 
 
 
-
-
-  export const addMessageWithThunk = (listId, newTask) => (dispatch) => {
-    dispatch(addTask(listId, newTask));
-  };
+  // export const addMessageWithThunk = (listId, newTask) => (dispatch) => {
+  //   dispatch(addTask(listId, newTask));
+  // };

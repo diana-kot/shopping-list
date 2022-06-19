@@ -61,15 +61,32 @@ export const tasksReducer = (state = tasksState, action) => {
         ...state,
         tasks: {
           ...state.tasks,
-          [action.id]: [...state.tasks[action.id], action.tasks],
+          [action.id]: [...state.tasks[action.id], action.task],
         },
       };
     }
     case DELETE_TASK: {
       return {
         ...state,
-        tasks: state.tasks.filter((list) => list.id !== action.id),
+        [action.payload.listId]: state[action.payload.listId].filter(
+          (task) => task.id !== action.payload.idToDelete
+        ),
       };
+    }
+    case EDIT_TASK: {
+      const { listId, idToEdit, newText, newCount, newEzn } = action.payload;
+      const editIndex = state[listId].findIndex(
+        (task) => task.id === idToEdit
+      );
+
+      const newState = { ...state };
+      newState[listId][editIndex] = {
+        ...newState[listId][editIndex],
+        text: newText,
+        count: newCount,
+        ezn: newEzn,
+      };
+      return newState;
     }
 
     // case DELETE_MESSAGE: {

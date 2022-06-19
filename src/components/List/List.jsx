@@ -29,11 +29,13 @@ const List = () => {
   // }, []);
 
   const onAddTask = ({...newTask}) => {
-    dispatch(
-      addTask(listId, newTask)
-    );
-  console.log(newTask)
-  console.log(tasks)
+    // dispatch(
+    //   addTask(listId, newTask)
+     
+    // );
+    console.log('зашел сюда')
+  // console.log(newTask)
+  // console.log(tasks)
   };
 
   const debouncedGetResponse =
@@ -66,7 +68,8 @@ const List = () => {
               <Button text={"По имени"} />
             </div>
             <div className="app-content">
-              <Tasks tasks={tasks[listId]} />
+              <Tasks 
+              tasks={tasks[listId]} />
             </div>
             <AddTask onAddTask={onAddTask} />
           </div>

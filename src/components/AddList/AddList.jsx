@@ -18,10 +18,10 @@ const AddList = ({ onAdd }) => {
       alert("Введите название списка");
       return;
     }
-  
+    setIsLoading(true);
     dispatch(addList(`list-${name}`, name));
     dispatch(addListTasks(`list-${name}`));
-    setIsLoading(true);
+    setIsLoading(false);
     onClose();
 
     // axios

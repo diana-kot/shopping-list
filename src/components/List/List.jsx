@@ -12,49 +12,48 @@ import Tasks from "../Tasks";
 import Input from "../Input/Input";
 import Button from "../Button";
 
-// import { addMessageWithThunk } from "../../store/Tasks/actions";
+import { addTask } from "@store/Tasks/actions";
 
 import styles from "./List.module.scss";
 
 const List = () => {
   const dispatch = useDispatch();
-  const { chatId } = useParams();
+  const { listId } = useParams();
   const [inputSearchValue, setInputSearchValue] = React.useState("");
 
   const tasks = useSelector(({ tasks }) => tasks.tasks);
+  console.log(tasks)
 
-  React.useEffect(() => {
-    dispatch(fetchTasks());
-  }, []);
+  // React.useEffect(() => {
+  //   dispatch(fetchTasks());
+  // }, []);
 
-
-  const handleSubmit = (messageText) => {
-    dispatch();
-    // addMessageWithThunk(chatId, {
-    //   text: messageText,
-    //   author: "me",
-    //   id: `msg-${Date.now()}`,
-    // })
+  const onAddTask = ({...newTask}) => {
+    dispatch(
+      addTask(listId, newTask)
+    );
+  console.log(newTask)
+  console.log(tasks)
   };
 
-  const debouncedGetResponse = useCallback(
+  const debouncedGetResponse =
+    useCallback();
     // debounce(value => getResponse(value), 300),
     // []
-    console.log("поиск")
-  );
+    // console.log("поиск")
 
   const handleInputChange = (value) => {
     setInputSearchValue(value);
     debouncedGetResponse(value);
   };
 
-  if (!tasks[chatId]) {
+  if (!tasks[listId]) {
     return <Navigate to="/" replace />;
   }
 
   return (
     <>
-      {tasks[chatId] ? (
+      {tasks[listId] ? (
         <>
           <div className={styles.tasks}>
             <div className={styles.tasks__top}>
@@ -67,9 +66,9 @@ const List = () => {
               <Button text={"По имени"} />
             </div>
             <div className="app-content">
-              <Tasks tasks={tasks[chatId]} />
+              <Tasks tasks={tasks[listId]} />
             </div>
-            <AddTask />
+            <AddTask onAddTask={onAddTask} />
           </div>
         </>
       ) : (
@@ -87,9 +86,9 @@ const List = () => {
               <Button text={"По имени"} />
             </div>
             <div className="app-content">
-              <Tasks tasks={tasks[chatId]} />
+              <Tasks tasks={tasks[listId]} />
             </div>
-            <AddTask />
+            <AddTask onAddTask={onAddTask} />
           </div>
         </>
       )}

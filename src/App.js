@@ -15,7 +15,7 @@ function App() {
       <main className="main">
       <Routes>
           <Route path="/" element={<ListMain />}>
-            <Route path="chats/:chatId" element={<List />}></Route>
+            <Route path="lists/:listId" element={<List />}></Route>
           </Route>
           <Route path="*" element={<h2>404</h2>} />
         </Routes>

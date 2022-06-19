@@ -18,26 +18,30 @@ const AddList = ({ onAdd }) => {
       alert("Введите название списка");
       return;
     }
+  
+    dispatch(addList(`list-${name}`, name));
+    dispatch(addListTasks(`list-${name}`));
     setIsLoading(true);
+    onClose();
 
-    axios
-      .post("http://localhost:3002/lists", {
-        name: name,
-      })
-      .then(({ data }) => {
-        const listObj = { ...data, tasks: [] };
-        onAdd(listObj);
-        onClose();
-      })
+    // axios
+    //   .post("http://localhost:3002/lists", {
+    //     name: name,
+    //   })
+    //   .then(({ data }) => {
+    //     const listObj = { ...data, tasks: [] };
+    //     onAdd(listObj);
+    //     onClose();
+    //   })
 
-      .catch(() => {
-        alert("Ошибка при добавлении списка!");
-      })
-      .finally(() => {
-        setIsLoading(false);
-        dispatch(addList(`list-${name}`, name));
-        dispatch(addListTasks(`list-${name}`));
-      });
+    //   .catch(() => {
+    //     alert("Ошибка при добавлении списка!");
+    //   })
+    //   .finally(() => {
+    //     setIsLoading(false);
+    //     dispatch(addList(`list-${name}`, name));
+    //     dispatch(addListTasks(`list-${name}`));
+    //   });
   };
 
   const onClose = () => {

@@ -1,7 +1,10 @@
 import { SET_LISTS, SET_LOADED, ADD_LIST, DELETE_LIST } from "./actions";
 
 export const initialState = {
-  lists: [ ],
+  lists: [{
+    id: 1,
+    name: "Одежда"
+  } ],
   isLoaded: false,
   isLoadingFailed: false,
 };

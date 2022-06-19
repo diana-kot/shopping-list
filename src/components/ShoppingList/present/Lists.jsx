@@ -31,7 +31,7 @@ const Lists = ({
             <ul className={styles.shopping__list}>
               {lists &&
                 lists.map((obj) => (
-                  <Link key={obj.id} to={`/chats/${obj.id}`}>
+                  <Link key={obj.id} to={`/lists/${obj.id}`}>
                     <li
                       key={obj.id}
                       className={cn(

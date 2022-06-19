@@ -9,7 +9,22 @@ import {
 } from "./actions";
 
 export const tasksState = {
-  tasks: {},
+  tasks: { 
+    1: [
+    {
+      text: "квартира",
+      count: "1",
+      izm: "шт.",
+      id: "1"
+    },
+    {
+      text: "квар",
+      count: "16",
+      izm: "шт.",
+      id: "2"
+    }
+  ]
+},
   isLoaded: false,
   isLoadingFailed: false,
 };

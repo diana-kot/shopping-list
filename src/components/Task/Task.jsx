@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
-
+import React from 'react'
 import styles from "./Task.module.scss";
 
-export const Task = ({ text, count, izm }) => {
+export const Task = ({id, text, count, izm }) => {
   return (
     <div className={styles.grid}>
       <>

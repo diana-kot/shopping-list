@@ -56,20 +56,9 @@ export const deleteTask = (listId, taskId) => ({
 });
 
 
-// let timeout;
 
-// export const addMessageWithThunk =
-//   (chatId, newMessage) => (dispatch, getState) => {
-//     dispatch(addMessage(chatId, newMessage));
-//     if (newMessage.author !== AUTHORS.BOT) {
-//       clearTimeout(timeout);
-//       timeout = setTimeout(() => {
-//         const msgFromBot = {
-//           text: "Hi, I am a BOT",
-//           author: AUTHORS.BOT,
-//           id: `msg-${Date.now()}`,
-//         };
-//         dispatch(addMessage(chatId, msgFromBot));
-//       }, 1000);
-//     }
-//   };
+
+
+  export const addMessageWithThunk = (listId, newTask) => (dispatch) => {
+    dispatch(addTask(listId, newTask));
+  };

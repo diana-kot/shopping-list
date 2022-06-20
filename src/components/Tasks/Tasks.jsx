@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router";
 import Task from "../Task";
@@ -9,10 +9,11 @@ import styles from "./Tasks.module.scss";
 const Tasks = ({ tasks }) => {
   const { listId } = useParams();
   const dispatch = useDispatch();
+  
+  const [changeInputsIsShown, setChangeInputsIsShown] = useState(false)
 
   const handleDelete = (id) => {
     dispatch(deleteTask(listId, id));
-    console.log(1)
   };
 
   const handleEdit = (id, newText, newCount, newEzn) => {

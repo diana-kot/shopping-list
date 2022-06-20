@@ -78,11 +78,11 @@ export const tasksReducer = (state = tasksState, action) => {
     }
     case EDIT_TASK: {
       const { listId, idToEdit, newText, newCount, newEzn } = action.payload;
-      const editIndex = state[listId].findIndex((task) => task.id === idToEdit);
+      const editIndex = state.tasks[listId].findIndex((task) => task.id === idToEdit);
 
       const newState = { ...state };
-      newState[listId][editIndex] = {
-        ...newState[listId][editIndex],
+      newState.tasks[listId][editIndex] = {
+        ...newState.tasks[listId][editIndex],
         text: newText,
         count: newCount,
         ezn: newEzn,

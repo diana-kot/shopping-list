@@ -55,7 +55,6 @@ export const deleteTask = (listId, idToDelete) => ({
     listId,
     idToDelete,
   },
-  
 });
 
 export const editTask = (listId, idToEdit, newText, newCount, newEzn) => ({

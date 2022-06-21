@@ -7,6 +7,7 @@ import {
   SET_TASKS,
   SET_LOADED,
   SORT_TASK,
+
 } from "./actions";
 
 export const tasksState = {
@@ -32,6 +33,7 @@ export const tasksState = {
     type: '',
     order: '',
   },
+  currentTask: 'null'
 };
 
 export const tasksReducer = (state = tasksState, action) => {
@@ -102,6 +104,7 @@ export const tasksReducer = (state = tasksState, action) => {
         sortBy: action.payload,
       };
     }
+   
 
     default:
       return state;

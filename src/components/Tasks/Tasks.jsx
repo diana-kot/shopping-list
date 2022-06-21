@@ -1,28 +1,15 @@
 import React, { useState } from "react";
 import cn from "classnames";
 import { Reorder } from "framer-motion";
-import { createDispatchHook, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router";
 import Task from "../Task";
-import Button from "../Button";
-import { deleteTask, editTask, setTasks } from "@store/Tasks/actions";
+
+import { editTask, setTasks } from "@store/Tasks/actions";
 
 import styles from "./Tasks.module.scss";
 
 const Tasks = ({ tasks, sortItem, onRemove }) => {
-  const { listId } = useParams();
-  const dispatch = useDispatch();
-
-
-
-  const handleDelete = (id) => {
-    dispatch(deleteTask(listId, id));
-  };
-
-  const handleEdit = (id, newText, newCount, newEzn) => {
-    dispatch(editTask(listId, id, newText, newCount, newEzn));
-    console.log(2);
-  };
 
   const setTaskList = () => {
     console.log("Надо изменить стейт");
@@ -41,10 +28,6 @@ const Tasks = ({ tasks, sortItem, onRemove }) => {
             task={task}
             onRemove={onRemove}
           />
-          {/* <Button text={"Удалить"} onClick={() => handleDelete(task.id)} /> */}
-          {/* <Button onClick={() => handleEdit(task.id)} text={"Редактировать"} /> */}
-
-          
         </div>
       ))}
     </Reorder.Group>

@@ -6,6 +6,7 @@ export const ADD_TASK = "TASKS::ADD_TASK";
 export const DELETE_TASK = "TASKS::DELETE_TASK";
 export const EDIT_TASK = "TASKS::EDIT_TASK";
 export const SORT_TASK = "TASKS::SORT_TASK";
+export const GET_CURRENT_TASK = "TASKS::GET_CURRENT_TASK"
 
 export const SET_TASKS = "TASKS::SET_TASKS";
 export const SET_LOADED = "LOADED::SET_LOADED";
@@ -19,6 +20,8 @@ export const fetchTasks = (sortBy) => (dispatch) => {
       dispatch(setTasks(data));
     });
 };
+
+
 
 // export const removeList = () => (dispatch) => {
 //   if (window.confirm('Вы действительно хотите удалить список?')) {

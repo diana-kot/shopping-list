@@ -4,7 +4,7 @@ import cn from "classnames";
 import ModalEditTask from "../ModalEditTask";
 import styles from "./EditButton.module.scss";
 
-const EditButton = ({ onRemove, id }) => {
+const EditButton = ({ onRemove, id, task }) => {
   const [showEditModal, setShowEditModal] = useState(false);
   const [isDropdown, setIsDropdown] = useState(false);
 
@@ -18,7 +18,6 @@ const EditButton = ({ onRemove, id }) => {
 
   const deleteTask = () => {
     onRemove(id);
-    console.log(id);
   };
 
   return (
@@ -26,7 +25,7 @@ const EditButton = ({ onRemove, id }) => {
       <div className={styles.edit__button}>
         <span
           className={cn("fas", "fa-pen", "icon-button")}
-          onClick={changeShowEditModal}
+          onClick={() => changeShowEditModal(id)}
         ></span>
         <div className={styles.dropdown}>
           <span
@@ -48,8 +47,9 @@ const EditButton = ({ onRemove, id }) => {
         <div className={styles.modal}>
           {showEditModal && (
             <ModalEditTask
-            //   onCanel={hideEditeModal}
-            //  onEdit={handleEdit}
+              id={id}
+              task={task}
+              setShowEditModal={setShowEditModal}
             />
           )}
         </div>

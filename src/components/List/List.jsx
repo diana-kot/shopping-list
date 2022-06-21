@@ -65,8 +65,9 @@ const List = ({ onSortByName, text }) => {
 
   const removeTask = (idtask) => {
     dispatch(deleteTask(listId, idtask));
-    console.log("функция удаления таски вызов диспач", idtask);
   };
+
+
 
   return (
     <>

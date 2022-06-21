@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import cn from "classnames";
-import Button from "../Button";
+
 import ModalEditTask from "../ModalEditTask";
 import styles from "./EditButton.module.scss";
 
-const EditButton = () => {
+const EditButton = ({ onRemove, id }) => {
   const [showEditModal, setShowEditModal] = useState(false);
   const [isDropdown, setIsDropdown] = useState(false);
 
@@ -16,10 +16,9 @@ const EditButton = () => {
     setShowEditModal(!showEditModal);
   };
 
-  const hideEditeModal = (e) => {
-    if (e.target.className === styles.modal) {
-      setShowEditModal(false);
-    }
+  const deleteTask = () => {
+    onRemove(id);
+    console.log(id);
   };
 
   return (
@@ -38,7 +37,7 @@ const EditButton = () => {
             <div className={styles.dropdown__content}>
               <div
                 className={styles.dropdown__item}
-                // onClick={handleDelete(task.id)}
+                onClick={() => deleteTask(id)}
               >
                 <span className="far fa-trash-alt icon-button"></span>
                 <div className={styles.dropdown__item__text}>Удалить</div>
@@ -50,7 +49,7 @@ const EditButton = () => {
           {showEditModal && (
             <ModalEditTask
             //   onCanel={hideEditeModal}
-              // onEdit={handleEdit}
+            //  onEdit={handleEdit}
             />
           )}
         </div>

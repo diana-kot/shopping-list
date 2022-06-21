@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Button from "../Button";
-import { editTask } from "@store/Tasks/actions";
 
 import styles from "./ModalEditTask.module.scss";
 
@@ -11,13 +10,9 @@ const ModalEditTask = ({
   setInputCount,
   setInputOption,
   inputOption,
-  selectIems,
-  onCanel,
+  selectIems
 }) => {
   
-
- 
-
   return (
     <>
  

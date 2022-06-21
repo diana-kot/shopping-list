@@ -5,7 +5,7 @@ import cn from "classnames";
 import EditButton from "../EditButton";
 import styles from "./Task.module.scss";
 
-export const Task = ({ task, onEdit, onRemove }) => {
+export const Task = ({id, task, onEdit, onRemove }) => {
   return (
     <Reorder.Item value={task} className={styles.grid}>
       <>
@@ -14,7 +14,7 @@ export const Task = ({ task, onEdit, onRemove }) => {
         </div>
         <div className={styles.grid__item}>{task.count}</div>
         <div className={styles.grid__item}>{task.izm}</div>
-        <EditButton onEdit={onEdit} onRemove={onRemove} />
+        <EditButton onEdit={onEdit} onRemove={onRemove} id={id} />
       </>
     </Reorder.Item>
   );

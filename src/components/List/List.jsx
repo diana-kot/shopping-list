@@ -7,6 +7,7 @@ import { useParams, Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { fetchTasks, sortTask } from "@store/Tasks/actions";
+import { deleteTask, editTask, setTasks } from "@store/Tasks/actions";
 import AddTask from "../AddTask";
 import Tasks from "../Tasks";
 import Input from "../Input/Input";
@@ -38,7 +39,6 @@ const List = ({ onSortByName, text }) => {
   const onSortButtonClick = (e) => {
     // onSortByName(sortItem)
     dispatch(sortTask(sortItem));
-   
   };
 
   const onAddTask = ({ ...newTask }) => {
@@ -63,6 +63,11 @@ const List = ({ onSortByName, text }) => {
     return <Navigate to="/" replace />;
   }
 
+  const removeTask = (idtask) => {
+    dispatch(deleteTask(listId, idtask));
+    console.log("функция удаления таски вызов диспач", idtask);
+  };
+
   return (
     <>
       {tasks[listId] ? (
@@ -79,18 +84,17 @@ const List = ({ onSortByName, text }) => {
                 // onClick={onSelectSortType}
                 // activeSortType={sortBy.type}
                 onClick={(e) => onSortButtonClick(e.currentTarget.id)}
-              
                 text={"По имени"}
                 name="name"
                 id={`name`}
                 // itemSort={sortItem}
               />
-            
             </div>
             <div className="app-content">
               <Tasks
                 tasks={tasks[listId]}
                 onSortByName={sortItem}
+                onRemove={removeTask}
               />
             </div>
             <AddTask onAddTask={onAddTask} />
@@ -118,7 +122,11 @@ const List = ({ onSortByName, text }) => {
               />
             </div>
             <div className="app-content">
-              <Tasks tasks={tasks[listId]} />
+              <Tasks
+                onRemove={removeTask}
+                tasks={tasks[listId]}
+                onSortByName={sortItem}
+              />
             </div>
             <AddTask onAddTask={onAddTask} />
           </div>

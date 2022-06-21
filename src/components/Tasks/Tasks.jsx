@@ -9,7 +9,7 @@ import { deleteTask, editTask, setTasks } from "@store/Tasks/actions";
 
 import styles from "./Tasks.module.scss";
 
-const Tasks = ({ tasks, sortItem }) => {
+const Tasks = ({ tasks, sortItem, onRemove }) => {
   const { listId } = useParams();
   const dispatch = useDispatch();
 
@@ -37,7 +37,9 @@ const Tasks = ({ tasks, sortItem }) => {
             text={task.text}
             // count={task.count}
             // izm={task.izm}
+            id={task.id}
             task={task}
+            onRemove={onRemove}
           />
           {/* <Button text={"Удалить"} onClick={() => handleDelete(task.id)} /> */}
           {/* <Button onClick={() => handleEdit(task.id)} text={"Редактировать"} /> */}

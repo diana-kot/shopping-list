@@ -16,7 +16,7 @@ import { addTask } from "@store/Tasks/actions";
 
 import styles from "./List.module.scss";
 
-const List = ({  onSortByName}) => {
+const List = ({ onSortByName }) => {
   const sortItem = { type: "name", order: "asc" };
 
   const dispatch = useDispatch();
@@ -35,10 +35,11 @@ const List = ({  onSortByName}) => {
   //   console.log("сортировка", sortType);
   // }, []);
 
-  const onSortButtonClick =()=> {
+  const onSortButtonClick = (e) => {
     // onSortByName(sortItem)
-    dispatch(sortTask(sortItem))
-  }
+    dispatch(sortTask(sortItem));
+   
+  };
 
   const onAddTask = ({ ...newTask }) => {
     // dispatch(
@@ -77,17 +78,19 @@ const List = ({  onSortByName}) => {
               <Button
                 // onClick={onSelectSortType}
                 // activeSortType={sortBy.type}
-                onClick={(e)=>onSortButtonClick(e.currentTarget.id)}
+                onClick={(e) => onSortButtonClick(e.currentTarget.id)}
+                
                 text={"По имени"}
                 name="name"
                 id={`name`}
                 // itemSort={sortItem}
               />
+            
             </div>
             <div className="app-content">
-              <Tasks 
-              tasks={tasks[listId]} 
-              // onSortByName={onSortByName}
+              <Tasks
+                tasks={tasks[listId]}
+                onSortByName={sortItem}
               />
             </div>
             <AddTask onAddTask={onAddTask} />
@@ -108,7 +111,7 @@ const List = ({  onSortByName}) => {
               <Button
                 // onClick={onSelectSortType}
                 // itemSort={sortItem}
-                onClick={(e)=>onSortButtonClick(e.currentTarget.id)}
+                onClick={(e) => onSortButtonClick(e.currentTarget.id)}
                 text={"По имени"}
                 name="name"
                 id={`name`}

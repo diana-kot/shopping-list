@@ -7,7 +7,7 @@ import Button from "../Button";
 import { deleteTask, editTask, setTasks } from "@store/Tasks/actions";
 import styles from "./Tasks.module.scss";
 
-const Tasks = ({ tasks }) => {
+const Tasks = ({ tasks, sortItem }) => {
   const { listId } = useParams();
   const dispatch = useDispatch();
 

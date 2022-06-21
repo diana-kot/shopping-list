@@ -29,8 +29,8 @@ export const tasksState = {
   isLoaded: false,
   isLoadingFailed: false,
   sortBy: {
-    type: 'name',
-    order: 'asc',
+    type: '',
+    order: '',
   },
 };
 

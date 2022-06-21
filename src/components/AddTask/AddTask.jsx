@@ -4,7 +4,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "../Button";
 import { useParams, Navigate } from "react-router-dom";
-import { addTask, addMessageWithThunk } from "@store/Tasks/actions";
+import { addTask } from "@store/Tasks/actions";
 
 const AddTask = ({ lists, onAddTask }) => {
   const selectIems = ["шт.", "банк", "кг.", "г"];

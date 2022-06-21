@@ -1,31 +1,27 @@
-.grid * {
-	padding: 10px 15px;
-	// background-color: rgb(96, 143, 204);
-	border: 1px solid rgb(24, 84, 133);
-	text-align: center;
-	font-size: 14px;
-	font-family: sans-serif;
-	cursor: grab;
-	// color: #fff;
-	&:hover{
-		background-color: #ffdf8c;
-	}
+.grid {
+  padding: 10px 15px;
+  border: 1px solid rgb(24, 84, 133);
+  text-align: center;
+  font-size: 14px;
+  font-family: sans-serif;
+  // cursor: grab;
+  &:hover {
+    background-color: #ffdf8c;
+  }
+}
+.grid__item {
+  text-align: center;
+  font-size: 1.33em;
 }
 
 /* Сетка */
-
 .grid {
-	display: grid;
-	grid-template-columns: minmax(200px, 500px) 100px 100px;
-	// grid-gap: 5px;
-
-
-
+  display: grid;
+  border: 1px solid rgb(24, 84, 133);
+  grid-template-columns: minmax(200px, 500px) 100px 100px 100px;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
 }
-
-
-
-
 
 // @media only screen and (min-width: 768px) {
 // 	.grid__container {
@@ -36,7 +32,7 @@
 // }
 
 // @media only screen and (min-width: 1024px) {
-	
+
 // 	.grid__container {
 // 		grid-template-columns: repeat(4, 1fr);
 // 		grid-template-rows: repeat(2, 1fr);

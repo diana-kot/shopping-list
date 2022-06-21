@@ -16,7 +16,7 @@ import { addTask } from "@store/Tasks/actions";
 
 import styles from "./List.module.scss";
 
-const List = ({ onSortByName }) => {
+const List = ({ onSortByName, text }) => {
   const sortItem = { type: "name", order: "asc" };
 
   const dispatch = useDispatch();
@@ -79,7 +79,7 @@ const List = ({ onSortByName }) => {
                 // onClick={onSelectSortType}
                 // activeSortType={sortBy.type}
                 onClick={(e) => onSortButtonClick(e.currentTarget.id)}
-                
+              
                 text={"По имени"}
                 name="name"
                 id={`name`}

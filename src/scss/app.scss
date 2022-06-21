@@ -4,7 +4,7 @@
 // @import "~bootstrap/scss/bootstrap";
 
 body {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   height: 100%;
   line-height: 1;
   font-size: 14px;
@@ -25,6 +25,7 @@ body {
 
 .main {
   flex: 1 1 auto;
+  height: 100vh;
 }
 
 .container {
@@ -45,4 +46,3 @@ body {
     padding-right: 16px;
   }
 }
-

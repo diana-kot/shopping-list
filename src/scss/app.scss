@@ -46,3 +46,15 @@ body {
     padding-right: 16px;
   }
 }
+
+.fa,
+.fas {
+  font-size: 18px;
+  padding: 5px;
+  margin-left: 5px;
+  color: #7aa3a2;
+  &:hover {
+    color: #6b788c;
+    cursor: pointer;
+  }
+}

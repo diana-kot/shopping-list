@@ -1,15 +1,14 @@
 import React from "react";
+import { Reorder } from "framer-motion";
 import styles from "./Task.module.scss";
 
-export const Task = ({ id, text, count, izm, removeTask, editTask }) => {
+export const Task = ({ task }) => {
   return (
-    <div className={styles.grid}>
-      <>
-        <div className={styles.grid__item}>{text}</div>
-        <div className={styles.grid__item}>{count}</div>
-        <div className={styles.grid__item}>{izm}</div>
-      </>
-    </div>
+    <Reorder.Item value={task} className={styles.grid}>
+      <div className={styles.grid__item}>{task.text}</div>
+      <div className={styles.grid__item}>{task.count}</div>
+      <div className={styles.grid__item}>{task.izm}</div>
+    </Reorder.Item>
   );
 };
 

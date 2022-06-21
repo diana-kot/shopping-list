@@ -5,14 +5,19 @@ export const DELETE_LIST_TASKS = "TASKS::DELETE_LIST_TASKS";
 export const ADD_TASK = "TASKS::ADD_TASK";
 export const DELETE_TASK = "TASKS::DELETE_TASK";
 export const EDIT_TASK = "TASKS::EDIT_TASK";
+export const SORT_TASK = "TASKS::SORT_TASK";
 
 export const SET_TASKS = "TASKS::SET_TASKS";
 export const SET_LOADED = "LOADED::SET_LOADED";
 
-export const fetchTasks = () => (dispatch) => {
-  axios.get("http://localhost:3002/tasks").then(({ data }) => {
-    dispatch(setTasks(data));
-  });
+export const fetchTasks = (sortBy) => (dispatch) => {
+  axios
+    .get(
+      `http://localhost:3002/tasks?&_sort=${sortBy.type}&_order=${sortBy.order}`
+    )
+    .then(({ data }) => {
+      dispatch(setTasks(data));
+    });
 };
 
 // export const removeList = () => (dispatch) => {
@@ -64,10 +69,11 @@ export const editTask = (listId, idToEdit, newText, newCount, newEzn) => ({
     idToEdit,
     newText,
     newCount,
-    newEzn
+    newEzn,
   },
 });
 
-
-
-
+export const sortTask = ({ type, order }) => ({
+  type: SORT_TASK,
+  payload: { type, order },
+});

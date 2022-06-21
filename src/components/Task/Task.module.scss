@@ -5,7 +5,11 @@
 	text-align: center;
 	font-size: 14px;
 	font-family: sans-serif;
+	cursor: grab;
 	// color: #fff;
+	&:hover{
+		background-color: #ffdf8c;
+	}
 }
 
 /* Сетка */

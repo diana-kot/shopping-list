@@ -6,27 +6,32 @@ import {
   EDIT_TASK,
   SET_TASKS,
   SET_LOADED,
+  SORT_TASK,
 } from "./actions";
 
 export const tasksState = {
   tasks: {
-    1: [
-      {
-        text: "квартира",
-        count: "1",
-        izm: "шт.",
-        id: "1",
-      },
-      {
-        text: "квар",
-        count: "16",
-        izm: "шт.",
-        id: "2",
-      },
-    ],
+    // 1: [
+    //   {
+    //     text: "квартира",
+    //     count: "1",
+    //     izm: "шт.",
+    //     id: "1",
+    //   },
+    //   {
+    //     text: "квар",
+    //     count: "16",
+    //     izm: "шт.",
+    //     id: "2",
+    //   },
+    // ],
   },
   isLoaded: false,
   isLoadingFailed: false,
+  sortBy: {
+    type: 'name',
+    order: 'asc',
+  },
 };
 
 export const tasksReducer = (state = tasksState, action) => {
@@ -78,7 +83,9 @@ export const tasksReducer = (state = tasksState, action) => {
     }
     case EDIT_TASK: {
       const { listId, idToEdit, newText, newCount, newEzn } = action.payload;
-      const editIndex = state.tasks[listId].findIndex((task) => task.id === idToEdit);
+      const editIndex = state.tasks[listId].findIndex(
+        (task) => task.id === idToEdit
+      );
 
       const newState = { ...state };
       newState.tasks[listId][editIndex] = {
@@ -89,13 +96,13 @@ export const tasksReducer = (state = tasksState, action) => {
       };
       return newState;
     }
+    case SORT_TASK: {
+      return {
+        ...state,
+        sortBy: action.payload,
+      };
+    }
 
-    // case DELETE_MESSAGE: {
-    //   return {
-    //     ...state,
-    //     [action.idchat]: state.messages[action.idchat].filter(message => message.id !== action.delete),
-    //     };
-    // }
     default:
       return state;
   }

@@ -18,7 +18,10 @@ const AddTask = ({ lists, onAddTask }) => {
 
   const addTasks = (e) => {
     e.preventDefault();
-    
+    if (!inputText && !inputCount && !inputOption) {
+      alert("Заполните данные");
+      return;
+    }
     const obj = {
       text: inputText,
       count: inputCount,
@@ -27,7 +30,7 @@ const AddTask = ({ lists, onAddTask }) => {
     };
 
     setIsLoading(true);
-    onAddTask(obj);
+    // onAddTask(obj);
     dispatch(addTask(listId, obj));
 
     setIsLoading(false);
@@ -97,10 +100,12 @@ const AddTask = ({ lists, onAddTask }) => {
           </select>
           <Button
             type="submit"
-            text={isLoading ? "добавление..." : "добавить"}
+            text= {isLoading ? "добавление..." : "добавить"}
             disabled={isLoading}
+            // onClick={addTasks}
             className={styles.field}
           >
+           
           </Button>
         </div>
       </form>

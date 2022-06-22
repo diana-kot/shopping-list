@@ -1,15 +1,20 @@
-import React, { useState } from "react";
-import cn from "classnames";
+import React from "react";
 import { Reorder } from "framer-motion";
 import { useDispatch } from "react-redux";
-import { useParams } from "react-router";
 import Task from "../Task";
 
-import { editTask, setTasks } from "@store/Tasks/actions";
+import { setTasks } from "@store/Tasks/actions";
 
 import styles from "./Tasks.module.scss";
 
-const Tasks = ({ tasks, sortItem, onRemove }) => {
+const Tasks = ({ 
+  tasks, 
+  sortItem, 
+  onRemove, 
+  setSearchValue, 
+  searchValue }) => {
+
+   
 
   const setTaskList = () => {
     console.log("Надо изменить стейт");
@@ -17,7 +22,16 @@ const Tasks = ({ tasks, sortItem, onRemove }) => {
 
   return (
     <Reorder.Group as="ol" axys="y" values={tasks} onReorder={setTaskList}>
-      {tasks.map((task) => (
+      {tasks
+      
+      .filter((task)=> {
+        if(task.text.toLowerCase().includes(searchValue.toLowerCase())) {
+          return true
+        }
+        return false
+      })
+    
+      .map((task) => (
         <div className={styles.message__list} key={task.id}>
           <Task
             key={task.id}

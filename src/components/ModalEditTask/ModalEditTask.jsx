@@ -21,19 +21,6 @@ const ModalEditTask = ({
   const [newCount, setNewCount] = useState(task.count);
   const [newOption, setNewOption] = useState(task.izm);
   const dispatch = useDispatch();
-  // const handleEditTask = (e) => {
-  //   e.preventDefault();
-
-  //   const newObj = {
-  //     newText: newText,
-  //     newCount: newCount,
-  //     newIzm: newOption,
-  //     id: `tsk-${Date.now()}`,
-  //   };
-  //   setIsLoading(true);
-  //   onEdit(newObj);
-  //   setIsLoading(false);
-  // };
 
   const close = () => {
     setIsLoading(true);

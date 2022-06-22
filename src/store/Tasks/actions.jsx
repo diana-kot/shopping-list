@@ -11,10 +11,10 @@ export const GET_CURRENT_TASK = "TASKS::GET_CURRENT_TASK"
 export const SET_TASKS = "TASKS::SET_TASKS";
 export const SET_LOADED = "LOADED::SET_LOADED";
 
-export const fetchTasks = (sortBy) => (dispatch) => {
+export const fetchTasks = (search, sortBy, ) => (dispatch) => {
   axios
     .get(
-      `http://localhost:3002/tasks?&_sort=${sortBy.type}&_order=${sortBy.order}`
+      `http://localhost:3002/tasks?q=${search}&_sort=${sortBy.type}&_order=${sortBy.order}`
     )
     .then(({ data }) => {
       dispatch(setTasks(data));

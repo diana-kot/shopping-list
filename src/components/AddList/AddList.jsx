@@ -19,8 +19,8 @@ const AddList = ({ onAdd }) => {
       return;
     }
     setIsLoading(true);
-    dispatch(addList(`list-${name}`, name));
     dispatch(addListTasks(`list-${name}`));
+    dispatch(addList(`list-${name}`, name));
     setIsLoading(false);
     onClose();
 

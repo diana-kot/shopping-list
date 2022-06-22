@@ -5,6 +5,10 @@ export const initialState = {
     {
       id: 1,
       name: "Одежда",
+    },
+    {
+      id: 2,
+      name: "Продукты",
     }
   ],
   isLoaded: false,

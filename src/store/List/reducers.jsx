@@ -2,14 +2,14 @@ import { SET_LISTS, SET_LOADED, ADD_LIST, DELETE_LIST } from "./actions";
 
 export const initialState = {
   lists: [
-    {
-      id: 1,
-      name: "Одежда",
-    },
-    {
-      id: 2,
-      name: "Продукты",
-    }
+    // {
+    //   id: 1,
+    //   name: "Одежда",
+    // },
+    // {
+    //   id: 2,
+    //   name: "Продукты",
+    // }
   ],
   isLoaded: false,
   isLoadingFailed: false,

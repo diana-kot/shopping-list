@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchLists, addList, deleteList } from "@store/List/actions";
 import { deleteTask, addListTasks } from "@store/Tasks/actions";
 
-const AddList = ({ onAdd }) => {
+const AddList = () => {
   const dispatch = useDispatch();
   const [visiblePopup, setVisiblePopup] = useState(false);
   const [name, setName] = useState("");
@@ -19,8 +19,10 @@ const AddList = ({ onAdd }) => {
       return;
     }
     setIsLoading(true);
-    dispatch(addListTasks(`list-${name}`));
-    dispatch(addList(`list-${name}`, name));
+    const id = `chat${Date.now()}`;
+    dispatch(addList(`list-${id}`, name));
+    dispatch(addListTasks(`list-${id}`));
+   
     setIsLoading(false);
     onClose();
 

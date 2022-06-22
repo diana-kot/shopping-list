@@ -27,9 +27,8 @@
       align-items: center;
       justify-content: space-between;
       cursor: pointer;
-      gap: 100%;
-      padding: 10px 44px;
-      width: 90%;
+      gap: 20px;
+      padding: 10px 4px;
       transition: background-color 0.15s ease-in-out;
 
       &:hover #{$self}__remove {

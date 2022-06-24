@@ -6,7 +6,7 @@ export const setSearchValue = (searchValue) => ({
   payload: searchValue,
 });
 
-export const setSort = (sortField, sortDirection) => ({
-  type: SET_SORT,
-  payload: { sortField, sortDirection },
-});
+// export const setSort = (sortField, sortDirection) => ({
+//   type: SET_SORT,
+//   payload: { sortField, sortDirection },
+// });

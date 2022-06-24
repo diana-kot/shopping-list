@@ -13,10 +13,10 @@ export const SET_LOADED = "LOADED::SET_LOADED";
 
 export const SORT_BY_ASC ="TASKS::SORT_BY_ASC"
 
-export const fetchTasks = (search, sortBy, ) => (dispatch) => {
+export const fetchTasks = ( ) => (dispatch) => {
   axios
     .get(
-      `http://localhost:3002/tasks?q=${search}&_sort=${sortBy.type}&_order=${sortBy.order}`
+      `http://localhost:3002/tasks`
     )
     .then(({ data }) => {
       dispatch(setTasks(data));

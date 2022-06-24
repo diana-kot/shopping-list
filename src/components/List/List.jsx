@@ -22,8 +22,8 @@ const List = () => {
   const { sortField, sortDirection } = useSelector(({ filter }) => filter);
 
   // React.useEffect(() => {
-  //   dispatch(fetchTasks(search, sortBy ));
-  // }, [searchValue, sortBy ]);
+  //   dispatch(fetchTasks());
+  // }, []);
 
   // const onSelectSortType = React.useCallback((sortType) => {
   //   dispatch(sortTask(sortType));
@@ -36,12 +36,12 @@ const List = () => {
 
   const onSortButtonClick = (e) => {
     let value = 'text';
-    let direction = value.includes("asc") ? "asc" : "desc";
+    //  let direction = value.includes("asc") ? "asc" : "desc";
 
-    if (value.includes("text")) {
-      dispatch(sortByAsc({ direction }));
-      console.log('text')
-    }
+    // if (value.includes("text")) {
+     dispatch(sortByAsc({ listId }));
+    
+    // }
 
 
     // if (sortFieldTask === filterString) {

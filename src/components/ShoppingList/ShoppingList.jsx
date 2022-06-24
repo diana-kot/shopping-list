@@ -3,13 +3,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { fetchLists, addList, deleteList } from "@store/List/actions";
 import { deleteListTasks, addListTasks } from "@store/Tasks/actions";
+import { setSearchValue } from "@store/Filter/actions";
 import Lists from "./present/Lists";
 
 const ShoppingList = () => {
   const dispatch = useDispatch();
   const lists = useSelector(({ lists }) => lists.lists);
   const { listId } = useParams();
-  const [activeItem, setActiveItem] = useState();
+  const activeItemId = lists.find((item) => listId === item.id);
+  const [activeItem, setActiveItem] = useState(activeItemId);
+
   const navigate = useNavigate();
 
   const handleSubmit = (obj) => {
@@ -51,6 +54,7 @@ const ShoppingList = () => {
       handleDelete={handleDelete}
       onClickItem={(item) => {
         setActiveItem(item);
+        dispatch(setSearchValue(""));
       }}
       activeItem={activeItem}
       isRemovable

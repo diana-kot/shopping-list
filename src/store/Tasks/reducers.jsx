@@ -13,6 +13,7 @@ export const tasksState = {
   tasks: {},
   isLoaded: false,
   isLoadingFailed: false,
+  direction: "desc",
 };
 
 export const tasksReducer = (state = tasksState, action) => {
@@ -68,26 +69,52 @@ export const tasksReducer = (state = tasksState, action) => {
         (task) => task.id === idToEdit
       );
 
-      const newState = { ...state };
-      newState.tasks[listId][editIndex] = {
-        ...newState.tasks[listId][editIndex],
-        text: newText,
-        count: newCount,
-        ezn: newEzn,
+      const newState = {
+        ...state,
+        tasks: {
+          ...state.tasks,
+          [listId]: state.tasks[listId].map((item, index) => {
+            if (editIndex === index) {
+              return {
+                ...item,
+                text: newText,
+                count: newCount,
+                ezn: newEzn,
+              };
+            } else {
+              return {
+                ...item,
+              };
+            }
+          }),
+        },
       };
+      // newState.tasks[listId][editIndex] = {
+      //   ...newState.tasks[listId][editIndex],
+      //   text: newText,
+      //   count: newCount,
+      //   ezn: newEzn,
+      // };
       return newState;
     }
     case SORT_BY_ASC:
       const { listId } = action.payload;
-      const sortByAlphabetState = { ...state };
-      sortByAlphabetState.tasks[listId] =
-        action.payload.direction === "asc"
-          ? sortAsc(sortByAlphabetState.tasks[listId], "name")
-          : sortDesc(sortByAlphabetState.tasks[listId], "name");
+      const sortByAlphabetState = {
+        ...state,
+        tasks: {
+          ...state.tasks,
+          [listId]:
+            state.direction === "asc"
+              ? sortDesc(state.tasks[listId], "text")
+              : sortAsc(state.tasks[listId], "text"),
+        },
+        direction: state.direction === "desc" ? "asc" : "desc",
+      };
+
       // sortByAlphabetState.filteredProducts = sortedAlphabetArr;
       // sortByAlphabetState.appliedFilters = addFilterIfNotExists(SORT_BY_ASC, sortByAlphabetState.appliedFilters);
       // sortByAlphabetState.appliedFilters = removeFilter(SORT_BY_ASC, sortByAlphabetState.appliedFilters);
-
+      // debugger;
       return sortByAlphabetState;
     default:
       return state;
@@ -95,23 +122,35 @@ export const tasksReducer = (state = tasksState, action) => {
 };
 
 function sortAsc(arr, field) {
-  return arr.sort(function (a, b) {
-    if (a[field] > b[field]) return 1;
+  return arr
+    .map((obj) => {
+      return {
+        ...obj,
+      };
+    })
+    .sort(function (a, b) {
+      if (a[field] > b[field]) return 1;
 
-    if (b[field] > a[field]) return -1;
+      if (b[field] > a[field]) return -1;
 
-    return 0;
-  });
+      return 0;
+    });
 }
 
 function sortDesc(arr, field) {
-  return arr.sort(function (a, b) {
-    if (a[field] > b[field]) return -1;
+  return arr
+    .map((obj) => {
+      return {
+        ...obj,
+      };
+    })
+    .sort(function (a, b) {
+      if (a[field] > b[field]) return -1;
 
-    if (b[field] > a[field]) return 1;
+      if (b[field] > a[field]) return 1;
 
-    return 0;
-  });
+      return 0;
+    });
 }
 
 function addFilterIfNotExists(filter, appliedFilters) {

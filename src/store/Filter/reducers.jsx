@@ -1,10 +1,11 @@
 import { SET_SORT, SET_SERCH_VALUE } from "./actions";
 
 export const filterState = {
+  
   searchValue: "",
   categoryId: 0,
-  sortField: 'text',
-  sortDirection: -1,
+  // sortField: 'text',
+  // sortDirection: -1,
 };
 
 export const filterReducer = (state = filterState, action) => {

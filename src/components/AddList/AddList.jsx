@@ -32,7 +32,7 @@ const AddList = () => {
     //   })
     //   .then(({ data }) => {
     //     const listObj = { ...data, tasks: [] };
-    //     onAdd(listObj);
+    //     // onAdd(listObj);
     //     onClose();
     //   })
 

@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import cn from "classnames";
-
+import { useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
+import { deleteTask, setTasks } from "@store/Tasks/actions";
 import ModalEditTask from "../ModalEditTask";
 import styles from "./EditButton.module.scss";
 
-const EditButton = ({ onRemove, id, task }) => {
+const EditButton = ({ id, task }) => {
+  const dispatch = useDispatch();
+  const { listId } = useParams();
   const [showEditModal, setShowEditModal] = useState(false);
   const [isDropdown, setIsDropdown] = useState(false);
 
@@ -16,8 +20,8 @@ const EditButton = ({ onRemove, id, task }) => {
     setShowEditModal(!showEditModal);
   };
 
-  const deleteTask = () => {
-    onRemove(id);
+  const handleDeleteTask = (idtask) => {
+    dispatch(deleteTask(listId, idtask));
   };
 
   return (
@@ -36,7 +40,7 @@ const EditButton = ({ onRemove, id, task }) => {
             <div className={styles.dropdown__content}>
               <div
                 className={styles.dropdown__item}
-                onClick={() => deleteTask(id)}
+                onClick={() => handleDeleteTask(id)}
               >
                 <span className="far fa-trash-alt icon-button"></span>
                 <div className={styles.dropdown__item__text}>Удалить</div>

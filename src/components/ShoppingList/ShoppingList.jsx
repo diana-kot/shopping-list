@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { fetchLists, addList, deleteList } from "@store/List/actions";
 import { deleteListTasks, addListTasks } from "@store/Tasks/actions";
-import axios from "axios";
 import Lists from "./present/Lists";
 
 const ShoppingList = () => {
@@ -22,7 +21,7 @@ const ShoppingList = () => {
   const removeList = async (id) => {
     dispatch(deleteListTasks(id));
     dispatch(deleteList(id));
-   
+
     // try {
     //   if (window.confirm("Вы действительно хотите удалить список?")) {
     //     dispatch(deleteList(id));
@@ -40,9 +39,9 @@ const ShoppingList = () => {
     navigate("/", { replace: true });
   };
 
-  React.useEffect(() => {
-    dispatch(fetchLists());
-  }, []);
+  // React.useEffect(() => {
+  //   dispatch(fetchLists());
+  // }, []);
 
   return (
     <Lists

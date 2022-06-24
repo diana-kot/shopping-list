@@ -30,9 +30,7 @@ const AddTask = ({ lists, onAddTask }) => {
     };
 
     setIsLoading(true);
-    // onAddTask(obj);
     dispatch(addTask(listId, obj));
-
     setIsLoading(false);
     onClose();
 
@@ -100,13 +98,10 @@ const AddTask = ({ lists, onAddTask }) => {
           </select>
           <Button
             type="submit"
-            text= {isLoading ? "добавление..." : "добавить"}
+            text={isLoading ? "добавление..." : "добавить"}
             disabled={isLoading}
-            // onClick={addTasks}
             className={styles.field}
-          >
-           
-          </Button>
+          ></Button>
         </div>
       </form>
     </>

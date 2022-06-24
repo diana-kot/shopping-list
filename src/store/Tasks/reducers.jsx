@@ -6,34 +6,13 @@ import {
   EDIT_TASK,
   SET_TASKS,
   SET_LOADED,
-  SORT_TASK,
-
+  SORT_BY_ASC,
 } from "./actions";
 
 export const tasksState = {
-  tasks: {
-    // 1: [
-    //   {
-    //     text: "квартира",
-    //     count: "1",
-    //     izm: "шт.",
-    //     id: "1",
-    //   },
-    //   {
-    //     text: "квар",
-    //     count: "16",
-    //     izm: "шт.",
-    //     id: "2",
-    //   },
-    // ],
-  },
+  tasks: {},
   isLoaded: false,
   isLoadingFailed: false,
-  sortBy: {
-    type: '',
-    order: '',
-  },
-  currentTask: 'null'
 };
 
 export const tasksReducer = (state = tasksState, action) => {
@@ -98,15 +77,52 @@ export const tasksReducer = (state = tasksState, action) => {
       };
       return newState;
     }
-    case SORT_TASK: {
-      return {
-        ...state,
-        sortBy: action.payload,
-      };
-    }
-   
+    case SORT_BY_ASC:
+      const { listId } = action.payload;
+      const sortByAlphabetState = { ...state };
+      sortByAlphabetState.tasks[listId] =
+        action.payload.direction === "asc"
+          ? sortAsc(sortByAlphabetState.tasks[listId], "name")
+          : sortDesc(sortByAlphabetState.tasks[listId], "name");
+      // sortByAlphabetState.filteredProducts = sortedAlphabetArr;
+      // sortByAlphabetState.appliedFilters = addFilterIfNotExists(SORT_BY_ASC, sortByAlphabetState.appliedFilters);
+      // sortByAlphabetState.appliedFilters = removeFilter(SORT_BY_ASC, sortByAlphabetState.appliedFilters);
 
+      return sortByAlphabetState;
     default:
       return state;
   }
 };
+
+function sortAsc(arr, field) {
+  return arr.sort(function (a, b) {
+    if (a[field] > b[field]) return 1;
+
+    if (b[field] > a[field]) return -1;
+
+    return 0;
+  });
+}
+
+function sortDesc(arr, field) {
+  return arr.sort(function (a, b) {
+    if (a[field] > b[field]) return -1;
+
+    if (b[field] > a[field]) return 1;
+
+    return 0;
+  });
+}
+
+function addFilterIfNotExists(filter, appliedFilters) {
+  let index = appliedFilters.indexOf(filter);
+  if (index === -1) appliedFilters.push(filter);
+
+  return appliedFilters;
+}
+
+function removeFilter(filter, appliedFilters) {
+  let index = appliedFilters.indexOf(filter);
+  appliedFilters.splice(index, 1);
+  return appliedFilters;
+}

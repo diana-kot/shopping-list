@@ -5,11 +5,13 @@ export const DELETE_LIST_TASKS = "TASKS::DELETE_LIST_TASKS";
 export const ADD_TASK = "TASKS::ADD_TASK";
 export const DELETE_TASK = "TASKS::DELETE_TASK";
 export const EDIT_TASK = "TASKS::EDIT_TASK";
-export const SORT_TASK = "TASKS::SORT_TASK";
 export const GET_CURRENT_TASK = "TASKS::GET_CURRENT_TASK"
+
 
 export const SET_TASKS = "TASKS::SET_TASKS";
 export const SET_LOADED = "LOADED::SET_LOADED";
+
+export const SORT_BY_ASC ="TASKS::SORT_BY_ASC"
 
 export const fetchTasks = (search, sortBy, ) => (dispatch) => {
   axios
@@ -20,8 +22,6 @@ export const fetchTasks = (search, sortBy, ) => (dispatch) => {
       dispatch(setTasks(data));
     });
 };
-
-
 
 // export const removeList = () => (dispatch) => {
 //   if (window.confirm('Вы действительно хотите удалить список?')) {
@@ -76,7 +76,8 @@ export const editTask = (listId, idToEdit, newText, newCount, newEzn) => ({
   },
 });
 
-export const sortTask = ({ type, order }) => ({
-  type: SORT_TASK,
-  payload: { type, order },
+export const sortByAsc = ( payload) => ({
+  type: SORT_BY_ASC,
+  payload
 });
+

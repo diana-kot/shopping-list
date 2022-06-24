@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import axios from "axios";
+
 import Button from "../Button";
+import { useDispatch, useSelector } from "react-redux";
+import { addList} from "@store/List/actions";
+import { addListTasks } from "@store/Tasks/actions";
+
 import closeSvg from "@assets/img/remove.svg";
 import styles from "./AddList.module.scss";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchLists, addList, deleteList } from "@store/List/actions";
-import { deleteTask, addListTasks } from "@store/Tasks/actions";
 
 const AddList = () => {
   const dispatch = useDispatch();
@@ -22,7 +23,6 @@ const AddList = () => {
     const id = `chat${Date.now()}`;
     dispatch(addList(`list-${id}`, name));
     dispatch(addListTasks(`list-${id}`));
-   
     setIsLoading(false);
     onClose();
 

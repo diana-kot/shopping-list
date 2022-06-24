@@ -1,30 +1,32 @@
 import React from "react";
-import { useDispatch } from "react-redux";
 import debounce from "lodash.debounce";
+
+import { useDispatch } from "react-redux";
+import { setSearchValue } from "@store/Filter/actions";
 
 import styles from "./Input.module.scss";
 
-const Input = ({setSearchValue, 
-  searchValue}) => {
+const Input = () => {
+  
   const dispatch = useDispatch();
   const [value, setValue] = React.useState("");
   const inputRef = React.useRef(null);
 
   const onClickClear = () => {
-    // dispatch(setSearchValue(''));
-    setSearchValue("");
+    dispatch(setSearchValue(""));
+    setValue("");
     inputRef.current?.focus();
   };
 
   const updateSearchValue = React.useCallback(
     debounce((str) => {
-      // dispatch(setSearchValue(str));
+      dispatch(setSearchValue(str));
     }, 150),
     []
   );
 
   const onChangeInput = (event) => {
-    setSearchValue(event.target.value);
+    setValue(event.target.value);
     updateSearchValue(event.target.value);
   };
 
@@ -66,12 +68,12 @@ const Input = ({setSearchValue,
       </svg>
       <input
         ref={inputRef}
-        value={searchValue}
+        value={value}
         onChange={onChangeInput}
         className={styles.input}
         placeholder="Поиск..."
       />
-      {searchValue && (
+      {value && (
         <svg
           onClick={onClickClear}
           className={styles.clearIcon}

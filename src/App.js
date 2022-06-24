@@ -3,11 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import cn from "classnames";
 
 import List from "@components/List";
-import ShoppingList   from "./components/ShoppingList";
-
 import ListMain from './pages/ListMain'
-// import WrapperTasks from "@components/WrapperTasks";
-// import TaskList from "@pages/TaskList";
 
 function App() {
   return (

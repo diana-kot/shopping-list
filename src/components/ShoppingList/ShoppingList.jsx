@@ -42,9 +42,9 @@ const ShoppingList = () => {
     navigate("/", { replace: true });
   };
 
-  React.useEffect(() => {
-    dispatch(fetchLists());
-  }, []);
+  // React.useEffect(() => {
+  //   dispatch(fetchLists());
+  // }, []);
 
   return (
     <Lists

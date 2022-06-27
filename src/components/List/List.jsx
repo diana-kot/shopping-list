@@ -21,9 +21,9 @@ const List = () => {
   const tasks = useSelector(({ tasks }) => tasks.tasks);
   const { sortField, sortDirection } = useSelector(({ filter }) => filter);
 
-  React.useEffect(() => {
-    dispatch(fetchTasks());
-  }, []);
+  // React.useEffect(() => {
+  //   dispatch(fetchTasks());
+  // }, []);
 
   // const onSelectSortType = React.useCallback((sortType) => {
   //   dispatch(sortTask(sortType));

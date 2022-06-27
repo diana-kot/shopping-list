@@ -7,6 +7,8 @@ import {
   SET_TASKS,
   SET_LOADED,
   SORT_BY_ASC,
+  REORDER_TASK
+  
 } from "./actions";
 
 export const tasksState = {
@@ -36,6 +38,15 @@ export const tasksReducer = (state = tasksState, action) => {
         ...state,
         tasks: action.payload,
         isLoaded: true,
+      };
+    }
+    case REORDER_TASK: {
+      return {
+        ...state,
+        tasks: {
+          ...state.tasks,
+          [action.id]: [...state.tasks[action.id], action.tasks],
+        },
       };
     }
     case SET_LOADED:

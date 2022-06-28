@@ -7,8 +7,8 @@ import {
   SET_TASKS,
   SET_LOADED,
   SORT_BY_ASC,
-  REORDER_TASK
-  
+  REORDER_TASK,
+  DRAG_HAPPENED,
 } from "./actions";
 
 export const tasksState = {
@@ -74,6 +74,46 @@ export const tasksReducer = (state = tasksState, action) => {
         },
       };
     }
+
+    case DRAG_HAPPENED: {
+      const {
+        droppableIdStart,
+        droppableIdEnd,
+        droppableIndexStart,
+        droppableIndexEnd,
+        draggabledId,
+        listId,
+      } = action.payload;
+      // const editIndex = state.tasks[listId].findIndex(
+      //   (task) => task.id === droppableIndexStart
+      // );
+      // const list = state.lists.find((listId) => droppableIdStart === listId);
+      
+      const droppedTask = state.tasks[listId].splice(droppableIndexStart, 1)
+      const newState = {
+        ...state,
+
+        tasks: {
+          ...state.tasks,
+          [listId]: state.tasks[listId].splice(droppableIndexStart, 1).splice(droppableIndexEnd,0, ...droppedTask
+          ),
+        },
+      };
+      // const newState = {
+      //   ...state,
+      //   // tasks: {
+      //   //   ...state.tasks,
+      //   //   if (droppableIdStart === droppableIdEnd) {
+      //   //     // const list = state.find((listId) => droppableIdStart === listId);
+      //   //     const task = state.tasks[listId].splice(droppableIndexStart, 1);
+      //   //    task.splice(droppableIndexEnd, 0, ...task);
+      //   //   }
+      //   // }
+      // };
+
+      //  debugger;
+      return newState;
+    }
     case EDIT_TASK: {
       const { listId, idToEdit, newText, newCount, newEzn } = action.payload;
       const editIndex = state.tasks[listId].findIndex(
@@ -121,11 +161,6 @@ export const tasksReducer = (state = tasksState, action) => {
         },
         direction: state.direction === "desc" ? "asc" : "desc",
       };
-
-      // sortByAlphabetState.filteredProducts = sortedAlphabetArr;
-      // sortByAlphabetState.appliedFilters = addFilterIfNotExists(SORT_BY_ASC, sortByAlphabetState.appliedFilters);
-      // sortByAlphabetState.appliedFilters = removeFilter(SORT_BY_ASC, sortByAlphabetState.appliedFilters);
-      // debugger;
       return sortByAlphabetState;
     default:
       return state;
@@ -162,17 +197,4 @@ function sortDesc(arr, field) {
 
       return 0;
     });
-}
-
-function addFilterIfNotExists(filter, appliedFilters) {
-  let index = appliedFilters.indexOf(filter);
-  if (index === -1) appliedFilters.push(filter);
-
-  return appliedFilters;
-}
-
-function removeFilter(filter, appliedFilters) {
-  let index = appliedFilters.indexOf(filter);
-  appliedFilters.splice(index, 1);
-  return appliedFilters;
 }

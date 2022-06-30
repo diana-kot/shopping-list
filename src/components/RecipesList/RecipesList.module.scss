@@ -1,0 +1,20 @@
+.content__items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-gap: 15px;
+  gap: 15px;
+
+}
+
+.container {
+ 
+  margin: 0 auto;
+  max-width: 900px;
+  width: 90%;
+}
+
+@media only screen and (min-width: 601px) {
+  .container {
+    width: 85%;
+  }
+}

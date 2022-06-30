@@ -12,6 +12,7 @@
   justify-content: space-between;
   background-color: $grayColor;
   padding: 50px 20px;
+  // min-height: 100vh;
 
   &__list {
     $self: &;

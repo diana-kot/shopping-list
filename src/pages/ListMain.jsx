@@ -4,11 +4,7 @@ import styles from "./ListMain.module.scss";
 import ShoppingList from "../components/ShoppingList";
 
 const ListMain = () => {
-  return (
-    <div className={styles.shopping}>
-      <ShoppingList />
-    </div>
-  );
+  return <ShoppingList />;
 };
 
 export default ListMain;

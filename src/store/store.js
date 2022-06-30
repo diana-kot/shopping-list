@@ -6,11 +6,15 @@ import storage from "redux-persist/lib/storage";
 import { listReducer } from "@store/List/reducers";
 import { tasksReducer } from "@store/Tasks/reducers";
 import { filterReducer } from "./Filter/reducers";
+import { recipesReducer } from "./Recipes/reducers";
+import { descriptionReducer } from "./Description/reducers";
 
 const rootReducer = combineReducers({
   lists: listReducer,
   tasks: tasksReducer,
   filter: filterReducer,
+  recipes: recipesReducer,
+  description: descriptionReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

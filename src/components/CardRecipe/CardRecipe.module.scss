@@ -1,0 +1,66 @@
+.recipe {
+  position: relative;
+  background-color: #fff;
+  border: 1px solid rgba(160, 160, 160, 0.2);
+  transition: box-shadow 0.25s;
+  border-radius: 5px;
+  padding: 3px;
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+
+    &__top {
+      position: relative;
+    }
+
+    &__image {
+      display: block;
+      border-radius: 2px 2px 0 0;
+      position: relative;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      height: 157px;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    &__content {
+      flex-grow: 1;
+      padding: 10px;
+      border-radius: 0 0 2px 2px;
+    }
+
+    &__title {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    &__text {
+      font-size: 12px;
+      margin: 0;
+    }
+
+    &__action {
+      background-color: inherit;
+      border-top: 1px solid rgba(160, 160, 160, 0.2);
+      position: relative;
+      padding: 10px 24px;
+    }
+
+    &__btn {
+      line-height: 32.4px;
+      font-size: 13px;
+      text-decoration: none;
+      text-align: center;
+      padding: 4px 10px;
+      width: 100%;
+      cursor: pointer;
+    }
+  }
+}

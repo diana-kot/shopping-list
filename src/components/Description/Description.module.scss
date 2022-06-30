@@ -1,0 +1,21 @@
+.grid {
+  padding: 4px 10px;
+  border: 1px solid rgb(24, 84, 133);
+  // background-color: #ffdf8c;
+  text-align: center;
+  font-size: 12px;
+  &:hover {
+    background-color: #ffdf8c;
+  }
+}
+
+.grid__item {
+  text-align: left;
+  font-size: 1.33em;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(110px, 200px) 75px 75px;
+  grid-column-gap: 10px;
+}

@@ -88,14 +88,13 @@ export const tasksReducer = (state = tasksState, action) => {
       //   (task) => task.id === droppableIndexStart
       // );
       // const list = state.lists.find((listId) => droppableIdStart === listId);
-      
-      const droppedTask = state.tasks[listId].splice(droppableIndexStart, 1)
+      const task = state.tasks[listId].splice(droppableIndexStart, 1);
+      // const droppedTask = state.tasks[listId]
       const newState = {
         ...state,
-
         tasks: {
           ...state.tasks,
-          [listId]: state.tasks[listId].splice(droppableIndexStart, 1).splice(droppableIndexEnd,0, ...droppedTask
+          [listId]: state.tasks[listId].splice(droppableIndexEnd,0, ...task
           ),
         },
       };
@@ -111,7 +110,7 @@ export const tasksReducer = (state = tasksState, action) => {
       //   // }
       // };
 
-      //  debugger;
+      debugger;
       return newState;
     }
     case EDIT_TASK: {

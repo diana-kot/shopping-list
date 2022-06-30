@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import cn from "classnames";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { deleteTask, setTasks } from "@store/Tasks/actions";
+import { deleteTask } from "@store/Tasks/actions";
 import ModalEditTask from "../ModalEditTask";
 import styles from "./EditButton.module.scss";
 

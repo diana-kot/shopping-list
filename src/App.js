@@ -18,7 +18,7 @@ function App() {
               <Route path="lists/:listId" element={<List />}></Route>
             </Route>
             <Route path="recipes" element={<Recipes />}></Route>
-            <Route path="recipes/:id" element={<FullRecipes />}></Route>
+            <Route path="recipes/:recipId" element={<FullRecipes />}></Route>
             <Route path="*" element={<h2>404</h2>} />
           </Route>
         </Routes>

@@ -4,16 +4,20 @@ export const initialState = {
   lists: [],
   isLoaded: false,
   isLoadingFailed: false,
+  count: 0,
 };
 
 export const listReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_LISTS: {
-      return {
-        ...state,
-        lists: action.payload,
-        isLoaded: true,
-      };
+      const findItem = state.lists.find((obj) => obj.id === action.id);
+      if (!findItem) {
+        return {
+          ...state,
+          lists: action.payload,
+          isLoaded: true,
+        };
+      }
     }
     case SET_LOADED:
       return {

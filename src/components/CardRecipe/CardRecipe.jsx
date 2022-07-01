@@ -5,7 +5,7 @@ import Button from "../Button";
 
 import styles from "./CardRecipe.module.scss";
 
-const CardRecipe = ({ id, imageUrl, title, description }) => {
+const CardRecipe = ({ id, imageUrl, title }) => {
   return (
     <>
       <div className={styles.recipe}>
@@ -20,8 +20,8 @@ const CardRecipe = ({ id, imageUrl, title, description }) => {
           <div className={styles.recipe__card__content}>
             <span className={styles.recipe__card__title}>{title}</span>
             <p className={styles.recipe__card__text}>
-              lorem vkhdsvf sdvidyvudfyv iudfivfxuivi xfvufxvuchvchdvdv
-              djhvdhjfvd dfhvdfjvdfj dfuvdu...
+              {/* lorem vkhdsvf sdvidyvudfyv iudfivfxuivi xfvufxvuchvchdvdv
+              djhvdhjfvd dfhvdfjvdfj dfuvdu... */}
             </p>
             {/* <p>{description.slice(0, 90)}...</p> */}
           </div>

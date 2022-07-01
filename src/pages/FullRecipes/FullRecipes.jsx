@@ -17,7 +17,8 @@ const FullRecipes = () => {
 
   const [recip, setRecip] = React.useState();
 
-  const { id } = useParams();
+  const { recipId } = useParams();
+  console.log(recipId)
   const navigate = useNavigate();
 
   React.useEffect(() => {
@@ -27,7 +28,7 @@ const FullRecipes = () => {
   React.useEffect(() => {
     async function fetchRecip() {
       try {
-        const { data } = await axios.get("http://localhost:3002/recipes/" + id);
+        const { data } = await axios.get("http://localhost:3002/recipes/" + recipId);
         setRecip(data);
       } catch (error) {
         alert("Ошибка при получении рецепта!");
@@ -54,9 +55,11 @@ const FullRecipes = () => {
           <p className={styles.recip__title}>{recip.title}</p>
         </div>
 
-        {description[id] ? (
+        {description[recipId] ? (
           <div>
-            <Description description={description[id]} />
+            <Description 
+            title={recip.title}
+            description={description[recipId]} />
           </div>
         ) : (
           <>

@@ -94,8 +94,7 @@ export const tasksReducer = (state = tasksState, action) => {
         ...state,
         tasks: {
           ...state.tasks,
-          [listId]: state.tasks[listId].splice(droppableIndexEnd,0, ...task
-          ),
+          [listId]: state.tasks[listId].splice(droppableIndexEnd, 0, ...task),
         },
       };
       // const newState = {

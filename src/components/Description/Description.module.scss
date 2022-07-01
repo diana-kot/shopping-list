@@ -14,8 +14,18 @@
   font-size: 1.33em;
 }
 
+.grid__item__modif {
+  display: flex;
+  gap: 10px;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
 .grid {
   display: grid;
-  grid-template-columns: minmax(110px, 200px) 75px 75px;
+  grid-template-columns: minmax(110px, 200px) 75px 75px 275px;
   grid-column-gap: 10px;
 }

@@ -39,7 +39,7 @@ const Description = ({ description, title }) => {
   return (
     <ul>
       {description.map((des) => (
-        <div className={styles.message__list} key={`des${recipId}`}>
+        <div className={styles.message__list} key={`des${des.id}`}>
           <li className={styles.grid}>
             <>
               <div className={styles.grid__item}>{des.text}</div>

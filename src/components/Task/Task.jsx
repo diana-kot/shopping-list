@@ -21,7 +21,8 @@ export const Task = ({ id, task, index }) => {
               <div className={styles.grid__item}>{task.text}</div>
               <div className={styles.grid__item}>{task.count}</div>
               <div className={styles.grid__item}>{task.izm}</div>
-              <EditButton id={id} task={task} />
+              <EditButton id={id} 
+              task={task} />
             </>
           </li>
         </div>

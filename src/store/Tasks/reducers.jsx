@@ -1,7 +1,9 @@
+import { concat } from "lodash";
 import {
   ADD_LIST_TASKS,
   DELETE_LIST_TASKS,
   ADD_TASK,
+  COMPLETED_TASK,
   DELETE_TASK,
   EDIT_TASK,
   SET_TASKS,
@@ -74,7 +76,49 @@ export const tasksReducer = (state = tasksState, action) => {
         },
       };
     }
+    case COMPLETED_TASK: {
+     const taskCompleIndex = action.payload.idToComplete // индекс элемента, который надо перенести в конец
+    // const taskCompleted = state.tasks[action.payload.listId].splice(taskCompleIndex, 1)[0]
+    const taskCompleted = state.tasks[action.payload.listId][taskCompleIndex]
+    // console.log(taskCompleted)
+        
+      return {
+        ...state,
+        tasks: {
+          ...state.tasks,
+          [action.payload.listId]: state.tasks[action.payload.listId]
 
+            .map((task) =>
+              task.id === action.payload.idToComplete
+                ? { ...task, completed: !task.completed }
+                : { ...task }
+            )
+            // .filter(
+            //   (task) => task.completed !== true
+            //   // ? completedTasks.push(task)[action.payload.listId]
+            //   // : state.tasks[action.payload.listId].splice(taskCompleIndex, 1)
+            // )
+
+     
+
+        // .splice(taskCompleIndex, 1)
+        //  .push(taskCompleIndex)
+
+        // .splice(1, 2, taskCompleted)
+        },
+      };
+      
+    }
+
+      // const completedTasks = {
+      //   tasks: {
+      //     [action.payload.listId]: state.tasks[action.payload.listId]
+      //     .filter(
+      //       (task) => task.id === taskCompleIndex
+            
+      //     ),
+      //   },
+      // };
     case DRAG_HAPPENED: {
       const {
         droppableIdStart,
@@ -128,7 +172,7 @@ export const tasksReducer = (state = tasksState, action) => {
                 ...item,
                 text: newText,
                 count: newCount,
-                ezn: newEzn,
+                izm: newEzn,
               };
             } else {
               return {

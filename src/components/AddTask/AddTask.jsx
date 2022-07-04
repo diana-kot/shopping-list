@@ -7,7 +7,7 @@ import { useParams, Navigate } from "react-router-dom";
 import { addTask } from "@store/Tasks/actions";
 
 const AddTask = ({ lists, onAddTask }) => {
-  const selectIems = ["шт.", "банк", "кг.", "г"];
+  const selectIems = ["шт.", "банк", "кг.", "г.", ' ст. ложек'];
   const [inputText, setInputText] = useState("");
   const [inputCount, setInputCount] = useState("");
   const [inputOption, setInputOption] = useState(selectIems[0]);
@@ -27,6 +27,7 @@ const AddTask = ({ lists, onAddTask }) => {
       count: inputCount,
       izm: inputOption,
       id: `tsk-${Date.now()}`,
+      completed: false
     };
 
     setIsLoading(true);

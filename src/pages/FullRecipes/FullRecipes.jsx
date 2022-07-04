@@ -18,7 +18,6 @@ const FullRecipes = () => {
   const [recip, setRecip] = React.useState();
 
   const { recipId } = useParams();
-  console.log(recipId)
   const navigate = useNavigate();
 
   React.useEffect(() => {

@@ -57,13 +57,15 @@
         "text": "джинсы",
         "count": "1",
         "izm": "шт.",
-        "id": "1"
+        "id": "1",
+        "completed": false
       },
       {
         "text": "ботинки",
         "count": "6",
         "izm": "шт.",
-        "id": "2"
+        "id": "2",
+        "completed": false
       }
     ],
     "2": [
@@ -71,19 +73,22 @@
         "text": "овощи",
         "count": "1",
         "izm": "шт.",
-        "id": "1"
+        "id": "1",
+        "completed": false
       },
       {
         "text": "фрукты",
         "count": "6",
         "izm": "шт.",
-        "id": "2"
+        "id": "2",
+        "completed": false
       },
       {
         "text": "крупы",
         "count": "6",
         "izm": "шт.",
-        "id": "3"
+        "id": "3",
+        "completed": false
       }
     ]
   },
@@ -94,69 +99,138 @@
         "text": "Молоко (теплое)",
         "count": "125",
         "izm": "мл.",
-        "id": "1"
+        "id": "1",
+        "completed": false
       },
-      { "text": "Вода (теплая)", "count": "125", "izm": "мл.", "id": "2" },
-      { "text": "Яйцо", "count": "1", "izm": "шт.", "id": "2" },
+      {
+        "text": "Вода (теплая)",
+        "count": "125",
+        "izm": "мл.",
+        "id": "2",
+        "completed": false
+      },
+      {
+        "text": "Яйцо",
+        "count": "1",
+        "izm": "шт.",
+        "id": "2",
+        "completed": false
+      },
       {
         "text": "Масло растительное",
         "count": "2",
         "izm": "ст. ложки",
-        "id": "3"
+        "id": "3",
+        "completed": false
       },
-      { "text": "Мука", "count": "400", "izm": "г", "id": "4" },
-      { "text": "Дрожжи сухие", "count": "7", "izm": "г", "id": "5" },
+      {
+        "text": "Мука",
+        "count": "400",
+        "izm": "г",
+        "id": "4",
+        "completed": false
+      },
+      {
+        "text": "Дрожжи сухие",
+        "count": "7",
+        "izm": "г",
+        "id": "5",
+        "completed": false
+      },
       {
         "text": "Сыр моцарелла (твёрдый)",
         "count": "200",
         "izm": "г",
-        "id": "6"
+        "id": "6",
+        "completed": false
       },
-      { "text": "Яйца", "count": "5", "izm": "шт", "id": "7" }
+      {
+        "text": "Яйца",
+        "count": "5",
+        "izm": "шт",
+        "id": "7",
+        "completed": false
+      }
     ],
     "4": [
       {
         "text": "Яблоки (желательно кислые)",
         "count": "600",
         "izm": "г.",
-        "id": "1"
+        "id": "1",
+        "completed": false
       },
-      { "text": "Сахар", "count": "160", "izm": "г.", "id": "2" },
-      { "text": "Мука пшеничная", "count": "160", "izm": "г.", "id": "3" },
-      { "text": "Яйца", "count": "9", "izm": "шт", "id": "4" }
+      {
+        "text": "Сахар",
+        "count": "160",
+        "izm": "г.",
+        "id": "2",
+        "completed": false
+      },
+      {
+        "text": "Мука пшеничная",
+        "count": "160",
+        "izm": "г.",
+        "id": "3",
+        "completed": false
+      },
+      {
+        "text": "Яйца",
+        "count": "9",
+        "izm": "шт",
+        "id": "4",
+        "completed": false
+      }
     ],
     "5": [
       {
         "text": "Мука",
         "count": "600",
         "izm": "г.",
-        "id": "1"
+        "id": "1",
+        "completed": false
       },
       {
         "text": "Какао-порошок без сахара",
         "count": "125",
         "izm": "г.",
-        "id": "2"
+        "id": "2",
+        "completed": false
       },
-      { "text": "Сахар", "count": "1", "izm": "стакан.", "id": "3" },
+      {
+        "text": "Сахар",
+        "count": "1",
+        "izm": "стакан.",
+        "id": "3",
+        "completed": false
+      },
       {
         "text": "Ванилин",
         "count": "1",
         "izm": "г.",
-        "id": "4"
+        "id": "4",
+        "completed": false
       },
-      { "text": "Разрыхлитель для теста", "count": "1", "izm": "г", "id": "5" },
+      {
+        "text": "Разрыхлитель для теста",
+        "count": "1",
+        "izm": "г",
+        "id": "5",
+        "completed": false
+      },
       {
         "text": "Масло подсолнечное",
         "count": "0,5",
         "izm": "стакана",
-        "id": "6"
+        "id": "6",
+        "completed": false
       },
       {
         "text": "Вода",
         "count": "2",
         "izm": "стакана",
-        "id": "7"
+        "id": "7",
+        "completed": false
       }
     ],
     "6": [
@@ -164,39 +238,80 @@
         "text": "Фарш свино-говяжий",
         "count": "300",
         "izm": "г.",
-        "id": "1"
+        "id": "1",
+        "completed": false
       },
-      { "text": "Картофель", "count": "3", "izm": "шт.", "id": "2" },
-      { "text": "Помидор", "count": "1", "izm": "шт.", "id": "3" },
+      {
+        "text": "Картофель",
+        "count": "3",
+        "izm": "шт.",
+        "id": "2",
+        "completed": false
+      },
+      {
+        "text": "Помидор",
+        "count": "1",
+        "izm": "шт.",
+        "id": "3",
+        "completed": false
+      },
       {
         "text": "Лук репчатый",
         "count": "1",
         "izm": "шт.",
-        "id": "4"
+        "id": "4",
+        "completed": false
       },
-      { "text": "Сыр твердых сортов", "count": "150", "izm": "г", "id": "5" },
+      {
+        "text": "Сыр твердых сортов",
+        "count": "150",
+        "izm": "г",
+        "id": "5",
+        "completed": false
+      },
       {
         "text": "Яйцо",
         "count": "1",
         "izm": "шт.",
-        "id": "6"
+        "id": "6",
+        "completed": false
       },
-      { "text": "Сметана", "count": "100", "izm": "г.", "id": "7" }
+      {
+        "text": "Сметана",
+        "count": "100",
+        "izm": "г.",
+        "id": "7",
+        "completed": false
+      }
     ],
     "7": [
       {
         "text": "Творог",
         "count": "500",
         "izm": "г.",
-        "id": "1"
+        "id": "1",
+        "completed": false
       },
-      { "text": "Яйца", "count": "5", "izm": "шт.", "id": "2" },
-      { "text": "Сахар", "count": "2", "izm": "ст.ложки", "id": "3" },
+      {
+        "text": "Яйца",
+        "count": "5",
+        "izm": "шт.",
+        "id": "2",
+        "completed": false
+      },
+      {
+        "text": "Сахар",
+        "count": "2",
+        "izm": "ст.ложки",
+        "id": "3",
+        "completed": false
+      },
       {
         "text": "Манная крупа",
         "count": "5",
         "izm": "ст.ложки",
-        "id": "4"
+        "id": "4",
+        "completed": false
       }
     ],
     "8": [
@@ -204,21 +319,36 @@
         "text": "Кабачки",
         "count": "600",
         "izm": "г.",
-        "id": "1"
+        "id": "1",
+        "completed": false
       },
-      { "text": "Мука", "count": "80", "izm": "г.", "id": "2" },
-      { "text": "Яйца", "count": "2", "izm": "шт.", "id": "3" },
+      {
+        "text": "Мука",
+        "count": "80",
+        "izm": "г.",
+        "id": "2",
+        "completed": false
+      },
+      {
+        "text": "Яйца",
+        "count": "2",
+        "izm": "шт.",
+        "id": "3",
+        "completed": false
+      },
       {
         "text": "Чеснок",
         "count": "10",
         "izm": "г.",
-        "id": "4"
+        "id": "4",
+        "completed": false
       },
       {
         "text": "Масло растительное",
         "count": "20",
         "izm": "мл.",
-        "id": "5"
+        "id": "5",
+        "completed": false
       }
     ],
     "9": [
@@ -226,26 +356,36 @@
         "text": "Вишня",
         "count": "500",
         "izm": "г.",
-        "id": "1"
+        "id": "1",
+        "completed": false
       },
-      { "text": "Лаваш", "count": "190", "izm": "г.", "id": "2" },
+      {
+        "text": "Лаваш",
+        "count": "190",
+        "izm": "г.",
+        "id": "2",
+        "completed": false
+      },
       {
         "text": "Сметана жирностью 20 %",
         "count": "400",
         "izm": "г.",
-        "id": "3"
+        "id": "3",
+        "completed": false
       },
       {
         "text": "Сгущенное молоко",
         "count": "300",
         "izm": "г.",
-        "id": "4"
+        "id": "4",
+        "completed": false
       },
       {
         "text": "Какао-порошок",
         "count": "30",
         "izm": "г.",
-        "id": "5"
+        "id": "5",
+        "completed": false
       }
     ],
     "10": [
@@ -253,38 +393,50 @@
         "text": "Бисквитное печенье* («савойярди», «дамские пальчики»)",
         "count": "25",
         "izm": "шт.",
-        "id": "1"
+        "id": "1",
+        "completed": false
       },
-      { "text": "Сок апельсиновый", "count": "1", "izm": "стакан", "id": "2" },
+      {
+        "text": "Сок апельсиновый",
+        "count": "1",
+        "izm": "стакан",
+        "id": "2",
+        "completed": false
+      },
       {
         "text": "Яйца",
         "count": "2",
         "izm": "шт.",
-        "id": "3"
+        "id": "3",
+        "completed": false
       },
       {
         "text": "Сахарная пудра (просеянная)",
         "count": "0.5",
         "izm": "стакан",
-        "id": "4"
+        "id": "4",
+        "completed": false
       },
       {
         "text": "Сыр «Маскарпоне»",
         "count": "450",
         "izm": "г.",
-        "id": "5"
+        "id": "5",
+        "completed": false
       },
       {
         "text": "Цедра 1 апельсина, тертая на мелкой терке",
         "count": "50",
         "izm": "г.",
-        "id": "6"
+        "id": "6",
+        "completed": false
       },
       {
         "text": "Шоколад с апельсиновым ароматом (тертый)",
         "count": "90",
         "izm": "г.",
-        "id": "7"
+        "id": "7",
+        "completed": false
       }
     ]
   }

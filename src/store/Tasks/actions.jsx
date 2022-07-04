@@ -4,10 +4,12 @@ export const ADD_LIST_TASKS = "TASKS::ADD_LIST_TASKS";
 export const DELETE_LIST_TASKS = "TASKS::DELETE_LIST_TASKS";
 export const ADD_TASK = "TASKS::ADD_TASK";
 export const DELETE_TASK = "TASKS::DELETE_TASK";
+export const COMPLETED_TASK ="TASKS::COMPLETED_TASK"
 export const EDIT_TASK = "TASKS::EDIT_TASK";
 export const GET_CURRENT_TASK = "TASKS::GET_CURRENT_TASK";
 export const REORDER_TASK = "TASKS::REORDER_TASK";
 export const DRAG_HAPPENED = "TASKS::DRAG_HAPPENED";
+
 
 export const SET_TASKS = "TASKS::SET_TASKS";
 export const SET_LOADED = "LOADED::SET_LOADED";
@@ -86,6 +88,14 @@ export const deleteTask = (listId, idToDelete) => ({
   payload: {
     listId,
     idToDelete,
+  },
+});
+
+export const completedTask = (listId, idToComplete) => ({
+  type: COMPLETED_TASK,
+  payload: {
+    listId,
+    idToComplete,
   },
 });
 

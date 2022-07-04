@@ -15,13 +15,17 @@ import styles from "./List.module.scss";
 const List = () => {
   const dispatch = useDispatch();
   const { listId } = useParams();
-
+  const tasksEnd = React.useRef();
   const tasks = useSelector(({ tasks }) => tasks.tasks);
   const { sortField } = useSelector(({ filter }) => filter);
 
   // React.useEffect(() => {
   //   dispatch(fetchTasks());
   // }, []);
+
+  React.useEffect(() => {
+    tasksEnd.current?.scrollIntoView();
+  }, [tasks]);
 
   const sortFieldTask = sortField;
 
@@ -49,6 +53,7 @@ const List = () => {
             </div>
             <div className="app-content">
               <Tasks tasks={tasks[listId]} sortFieldTask={sortFieldTask} />
+              <div ref={tasksEnd}></div>
             </div>
             <AddTask />
           </div>

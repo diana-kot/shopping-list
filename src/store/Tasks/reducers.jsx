@@ -1,4 +1,3 @@
-import { concat } from "lodash";
 import {
   ADD_LIST_TASKS,
   DELETE_LIST_TASKS,
@@ -9,7 +8,6 @@ import {
   SET_TASKS,
   SET_LOADED,
   SORT_BY_ASC,
-  REORDER_TASK,
   DRAG_HAPPENED,
 } from "./actions";
 
@@ -40,15 +38,6 @@ export const tasksReducer = (state = tasksState, action) => {
         ...state,
         tasks: action.payload,
         isLoaded: true,
-      };
-    }
-    case REORDER_TASK: {
-      return {
-        ...state,
-        tasks: {
-          ...state.tasks,
-          [action.id]: [...state.tasks[action.id], action.tasks],
-        },
       };
     }
     case SET_LOADED:

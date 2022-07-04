@@ -26,8 +26,7 @@ const EditButton = ({ id, task }) => {
     dispatch(deleteTask(listId, idtask));
   };
 
-  const handleToggleTask = (idtask, index) => {
-    
+  const handleToggleTask = (idtask) => {
     const taskCompleIndex = idtask
     // const copyArr = {
    
@@ -39,10 +38,6 @@ const EditButton = ({ id, task }) => {
     //  console.log(taskCompleted)
     dispatch(completedTask(listId, taskCompleIndex)
     );
- 
- 
- 
-
   };
 
   return (

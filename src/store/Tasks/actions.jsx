@@ -7,7 +7,6 @@ export const DELETE_TASK = "TASKS::DELETE_TASK";
 export const COMPLETED_TASK ="TASKS::COMPLETED_TASK"
 export const EDIT_TASK = "TASKS::EDIT_TASK";
 export const GET_CURRENT_TASK = "TASKS::GET_CURRENT_TASK";
-export const REORDER_TASK = "TASKS::REORDER_TASK";
 export const DRAG_HAPPENED = "TASKS::DRAG_HAPPENED";
 
 
@@ -43,12 +42,6 @@ export const deleteListTasks = (listId) => ({
 export const setTasks = (tasks) => ({
   type: SET_TASKS,
   payload: tasks,
-});
-
-export const reorderTasks = (listId, tasks) => ({
-  type: REORDER_TASK,
-  id: listId,
-  tasks: tasks,
 });
 
 export const sort = (
